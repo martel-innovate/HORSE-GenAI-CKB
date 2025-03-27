@@ -1,0 +1,2857 @@
+attack,mitigation_list,mitigations_generated,model,created_at,total_duration,load_duration,prompt_eval_count,prompt_eval_duration,eval_count,eval_duration
+Session Credential Falsification through Manipulation,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Secure Randomization of Session IDs"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use of HMAC for Session Token Authentication"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Rate Limiting on Session Creation"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Implementation of Session Data Encryption"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Validation and Sanitization of Input Data Before Session Creation"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Monitoring for Unauthorized Access Attempts on Session Data"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Use of Multifactor Authentication for Session Establishment"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Single Sign-Off After Session Expiration"",
+      ""priority"": 8
+    },
+    {
+      ""name"": ""Session Token Rotation Mechanism"",
+      ""priority"": 9
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:16:06.3946047Z,153834650300,7578033600,179,18932000000,653,127174000000
+Session Credential Falsification through Prediction,"['Use a strong source of randomness to generate a session ID. ', 'Use adequate length session IDs ', 'Do not use information available to the user in order to generate session ID (e.g., time). ', 'Ideas for creating random numbers are offered by Eastlake [RFC1750] ', 'Encrypt the session ID if you expose it to the user. For instance session ID can be stored in a cookie in encrypted format. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Use a strong source of randomness to generate a session ID."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use adequate length session IDs."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Do not use information available to the user in order to generate session ID (e.g., time)."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Ideas for creating random numbers are offered by Eastlake [RFC1750]."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Encrypt the session ID if you expose it to the user. For instance, session ID can be stored in a cookie in encrypted format."",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:21:41.1674433Z,132720765900,35267500,267,25362000000,573,107322000000
+Session Sidejacking,"['Make sure that HTTPS is used to communicate with the target system. Alternatively, use VPN if possible. It is important to ensure that all communication between the client and the server happens via an encrypted secure channel. ', 'Modify the session token with each transmission and protect it with cryptography. Add the idea of request sequencing that gives the server an ability to detect replay attacks. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Enforce HTTPS communication with the target system"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use VPNs to encrypt and secure remote access connections"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Secure session tokens using cryptographic methods"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Implement request sequencing for detecting replay attacks"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Randomize and protect session IDs or tokens"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Limit the duration of active sessions to reduce exposure"",
+      ""priority"": 6
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:24:28.810959Z,165604708400,20378200,250,29805000000,696,135776000000
+Cross Site Tracing,"[""Administrators should disable support for HTTP TRACE at the destination's web server. Vendors should disable TRACE by default. "", 'Patch web browser against known security origin policy bypass exploits. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Disable HTTP TRACE Support"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Patch Web Browser Against Bypass Exploits"",
+      ""priority"": 2
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:27:00.2944841Z,149446663400,31734800,213,24606000000,637,124797000000
+Reusing Session IDs (aka Session Replay),"['Always invalidate a session ID after the user logout. ', 'Setup a session time out for the session IDs. ', 'Protect the communication between the client and server. For instance it is best practice to use SSL to mitigate adversary in the middle attacks (<a href=""/data/definitions/94.html"">CAPEC-94</a>). ', 'Do not code send session ID with GET method, otherwise the session ID will be copied to the URL. In general avoid writing session IDs in the URLs. URLs can get logged in log files, which are vulnerable to an attacker. ', 'Encrypt the session data associated with the session ID. ', 'Use multifactor authentication. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Always invalidate a session ID after user logout."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Randomize session ID generation upon login."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Set an explicit session timeout period."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Do not send session IDs using the GET method or place them in URLs."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Use SSL to encrypt communication between client and server (CAPEC-94)."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Encrypt session data associated with the session ID."",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Implement multifactor authentication for user access."",
+      ""priority"": 7
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:31:26.0333015Z,263691182500,20555300,315,37594000000,1131,226073000000
+Session Fixation,"['Use a strict session management mechanism that only accepts locally generated session identifiers: This prevents attackers from fixating session identifiers of their own choice. ', 'Regenerate and destroy session identifiers when there is a change in the level of privilege: This ensures that even though a potential victim may have followed a link with a fixated identifier, a new one is issued when the level of privilege changes. ', 'Use session identifiers that are difficult to guess or brute-force: One way for the attackers to obtain valid session identifiers is by brute-forcing or guessing them. By choosing session identifiers that are sufficiently random, brute-forcing or guessing becomes very difficult. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Use session identifiers that are difficult to guess or brute-force"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Regenerate and destroy session identifiers when there is a change in the level of privilege"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Use a strict session management mechanism that only accepts locally generated session identifiers"",
+      ""priority"": 3
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:34:44.2547908Z,196179589200,18680600,304,35024000000,826,161135000000
+Cross Site Identification,"['Usage: Users should always explicitly log out from the social networking sites when done using them. ', 'Usage: Users should not open other tabs in the browser when using a social networking site. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Explicit Logout"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Close Browser Tabs"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Use Private Browsing Mode"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Enable Cookie Clearing"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Browser Tracking Alerts"",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:37:08.2217313Z,141926938400,25440100,214,24295000000,612,117605000000
+"Removal of filters: Input filters, output filters, data masking",[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Input Validation"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Access Control Enforcement"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Output Filtering"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Data Masking"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Encryption of Data at Rest"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Regular Software Updates"",
+      ""priority"": 6
+    },
+    {
+      ""name"": "" Penetration Testing and Vulnerability Assessment"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Monitoring of System Activity"",
+      ""priority"": 8
+    },
+    {
+      ""name"": ""User Education and Security Awareness"",
+      ""priority"": 9
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:40:37.0918024Z,206828219900,23324200,184,20331000000,960,186470000000
+Removing/short-circuiting 'Purse' logic: removing/mutating 'cash' decrements,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Implement Access Controls"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Encrypt Sensitive Data"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Regularly Audit Cash Transactions"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Monitor for Unusual Transaction Patterns"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Rebuild User Trust"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Limit Cash Withdrawal Amounts"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Implement Rate Limits on Transactions"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Use Data Validation Techniques"",
+      ""priority"": 8
+    },
+    {
+      ""name"": ""Train Employees on Cybersecurity Awareness"",
+      ""priority"": 9
+    },
+    {
+      ""name"": ""Update Software Regularly"",
+      ""priority"": 10
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:43:13.7793508Z,154652545100,20369500,192,22553000000,668,132076000000
+Subverting Environment Variable Values,"['Protect environment variables against unauthorized read and write access. ', 'Protect the configuration files which contain environment variables against illegitimate read and write access. ', 'Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system. ', 'Apply the least privilege principles. If a process has no legitimate reason to read an environment variable do not give that privilege. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Protect environment variables against unauthorized read and write access."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Protect the configuration files which contain environment variables against illegitimate read and write access."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Apply the least privilege principles. If a process has no legitimate reason to read an environment variable do not give that privilege."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Encrypt sensitive environment variables using strong cryptographic methods."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Validate and sanitize all input data before use, ensuring that it meets predefined security criteria and does not contain malicious content."",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Use secure default values for environment variables to minimize potential vulnerabilities."",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Regularly audit and update environment variable configurations to ensure they align with current security best practices and organizational policies."",
+      ""priority"": 8
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:45:57.7023064Z,161880362200,58601300,279,37179000000,608,124639000000
+Manipulating Hidden Fields,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Input Validation Using Allowed Regex Patterns"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Sanitizing Hidden Fields Before Processing"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Enforcing Role-Based Access Controls on Hidden Fields"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Logging All Changes to Hidden Fields for Monitoring"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Secure Coding Practices for Checking and Validating Hidden Fields"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Encoding Hidden Fields Before Storage"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Implementing Web Application Firewalls (WAF) to Monitor for Suspicious Changes"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Conducting Regular Security Audits Focusing on Hidden Field Usage"",
+      ""priority"": 8
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:49:57.500165Z,237755135100,71915100,175,18848000000,1120,218831000000
+Leveraging Race Conditions via Symbolic Links,"['Use safe libraries when creating temporary files. For instance the standard library function mkstemp can be used to safely create temporary files. For shell scripts, the system utility mktemp does the same thing. ', 'Access to the directories should be restricted as to prevent attackers from manipulating the files. Denying access to a file can prevent an attacker from replacing that file with a link to a sensitive file. ', 'Follow the principle of least privilege when assigning access rights to files. ', 'Ensure good compartmentalization in the system to provide protected areas that can be trusted. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Use safe libraries when creating temporary files. For instance, the standard library function `mkstemp` can be used to safely create temporary files. For shell scripts, the system utility `mktemp` does the same thing."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Access to the directories should be restricted as to prevent attackers from manipulating the files. Denying access to a file can prevent an attacker from replacing that file with a link to a sensitive file."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Follow the principle of least privilege when assigning access rights to files."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Ensure good compartmentalization in the system to provide protected areas that can be trusted."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Implement file integrity monitoring tools to detect unauthorized changes to files and directories."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Enforce secure file and directory permissions to minimize access privileges for non-trusted entities."",
+      ""priority"": 6
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:53:16.3557907Z,196815402800,51708000,296,33058000000,818,163704000000
+Fuzzing for application mapping,"[""Design: Construct a 'code book' for error messages. When using a code book, application error messages aren't generated in string or stack trace form, but are catalogued and replaced with a unique (often integer-based) value 'coding' for the error. Such a technique will require helpdesk and hosting personnel to use a 'code book' or similar mapping to decode application errors/logs in order to respond to them normally. "", ""Design: wrap application functionality (preferably through the underlying framework) in an output encoding scheme that obscures or cleanses error messages to prevent such attacks. Such a technique is often used in conjunction with the above 'code book' suggestion. "", 'Implementation: Obfuscate server fields of HTTP response. ', 'Implementation: Hide inner ordering of HTTP response header. ', 'Implementation: Customizing HTTP error codes such as 404 or 500. ', 'Implementation: Hide HTTP response header software information filed. ', ""Implementation: Hide cookie's software information filed. "", ""Implementation: Obfuscate database type in Database API's error message. ""]","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Design: Construct a 'code book' for error messages."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Design: Wrap application functionality in an output encoding scheme that obscures or cleanses error messages."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Implementation: Obfuscate server fields of HTTP response."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Implementation: Hide inner ordering of HTTP response header."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Implementation: Customizing HTTP error codes such as 404 or 500."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Implementation: Hide HTTP response header software information field."",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Implementation: Hide cookie's software information field."",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Implementation: Obfuscate database type in Database API's error message."",
+      ""priority"": 8
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:56:09.0083863Z,170631360400,41253600,396,52661000000,595,117927000000
+Load Value Injection,"['Do not allow the forwarding of data resulting from a faulting or assisted instruction. Some current mitigations claim to zero out the forwarded data, but this mitigation still does not suffice. ', 'Insert explicit lfence speculation barriers in software before potentially faulting or assisted loads. This halts transient execution until all previous instructions have been executed and ensures that the architecturally correct value is forwarded. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Do not allow the forwarding of data resulting from a faulting or assisted instruction."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Insert explicit lifence speculation barriers in software before potentially faulting or assisted loads."",
+      ""priority"": 2
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T15:57:59.2824636Z,108204025100,40752600,253,26109000000,436,82051000000
+Transaction or Event Tampering via Application API Manipulation,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Input Validation"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Secure Headers (Content-Type and X-Content-Type-Options)"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Rate Limiting"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Authentication Mechanisms (e.g., OAuth, API Keys)"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Input Sanitization"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Web Application Firewalls (WAF)"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Data Encryption"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Secure API Design with Proper Validation"",
+      ""priority"": 8
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:00:20.9010061Z,139568682100,52823300,181,18162000000,644,121350000000
+Content Spoofing Via Application API Manipulation,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Input Validation and Sanitization"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Authentication and Authorization"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Rate Limiting"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Secure Headers"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Encrypted Communication"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Monitoring and Logging"",
+      ""priority"": 6
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:04:27.148002Z,244209775900,26820800,180,19318000000,1062,224864000000
+Navigation Remapping To Propagate Malicious Content,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Implement Content Detection for Unauthorized Navigation"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Restrict Propagation of Malicious Links"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Update Software Libraries to Patch Vulnerabilities"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Conduct Regular Security Audits for Navigation Systems"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Enforce User Education on Recognizing Suspicious Links"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Use DNS Filtering to Block Access to Malicious Domains"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Implement Click-Before-Exit for Potentially Harmful Links"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Monitor Network Traffic for Unusual Navigation Patterns"",
+      ""priority"": 8
+    },
+    {
+      ""name"": ""Use Web Content Filters to Block Access to Malicious Sites"",
+      ""priority"": 9
+    },
+    {
+      ""name"": ""Patch Outdated Browsers and Operating Systems"",
+      ""priority"": 10
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:06:52.1863971Z,142887083100,193073100,180,18945000000,654,123747000000
+Application API Button Hijacking,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Role-Based Access Control (RBAC)"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Web Application Firewall (WAF)"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Input Validation and Sanitization"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Rate Limiting"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Anti-Clickjacking Measures"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Secure Coding Practices"",
+      ""priority"": 6
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:10:16.3078402Z,202033182500,31084000,176,17800000000,1005,184200000000
+Dictionary-based Password Attack,"['Create a strong password policy and ensure that your system enforces this policy. ', 'Implement an intelligent password throttling mechanism. Care must be taken to assure that these mechanisms do not excessively enable account lockout attacks such as <a href=""/data/definitions/2.html"">CAPEC-2</a>. ', 'Leverage multi-factor authentication for all authentication services. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Create a strong password policy and ensure that your system enforces this policy."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Implement an intelligent password throttling mechanism. Care must be taken to assure that these mechanisms do not excessively enable account lockout attacks such as CAPEC-2."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Leverage multi-factor authentication for all authentication services."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Monitor user behavior and implement alerts for suspicious login attempts."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Use security keys or tokens instead of relying solely on passwords."",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:12:40.6484541Z,142259953100,44023800,252,27094000000,626,115121000000
+Rainbow Table Password Cracking,"['Use salt when computing password hashes. That is, concatenate the salt (random bits) with the original password prior to hashing it. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Use salt when computing password hashes. That is, concatenate the salt (random bits) with the original password prior to hashing it."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Enforce strong password policies requiring at least 12 characters with a mix of alphanumeric and special characters."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Implement multi-factor authentication (MFA) for all user accounts to reduce reliance on single-password security."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Use a password manager that generates and stores unique, strong passwords for each user account."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Limit the number of failed password attempts by enforcing lockout policies after several incorrect attempts."",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:14:58.9204892Z,136216255800,50084000,205,22858000000,605,113306000000
+Password Spraying,"['Create a strong password policy and ensure that your system enforces this policy. ', 'Implement an intelligent password throttling mechanism. Care must be taken to assure that these mechanisms do not excessively enable account lockout attacks such as <a href=""/data/definitions/2.html"">CAPEC-2</a>. ', 'Leverage multi-factor authentication for all authentication services and prior to granting an entity access to the domain network. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Create a strong password policy and ensure that your system enforces this policy."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Implement an intelligent password throttling mechanism. Care must be taken to assure that these mechanisms do not excessively enable account lockout attacks such as CAPEC-2."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Leverage multi-factor authentication for all authentication services and prior to granting an entity access to the domain network."",
+      ""priority"": 3
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:16:55.0345612Z,114057597600,26737500,262,27741000000,466,86287000000
+Try Common or Default Usernames and Passwords,"['Delete all default account credentials that may be put in by the product vendor. ', 'Implement a password throttling mechanism. This mechanism should take into account both the IP address and the log in name of the user. ', 'Put together a strong password policy and make sure that all user created passwords comply with it. Alternatively automatically generate strong passwords for users. ', 'Passwords need to be recycled to prevent aging, that is every once in a while a new password must be chosen. ']","
+{
+    ""mitigations"": [
+        {
+            ""name"": ""Delete all default account credentials that may be put in by the product vendor."",
+            ""priority"": 1
+        },
+        {
+            ""name"": ""Implement a password throttling mechanism. This mechanism should take into account both the IP address and the log in name of the user."",
+            ""priority"": 2
+        },
+        {
+            ""name"": ""Put together a strong password policy and make sure that all user created passwords comply with it. Alternatively automatically generate strong passwords for users."",
+            ""priority"": 3
+        },
+        {
+            ""name"": ""Passwords need to be recycled to prevent aging, that is every once in a while a new password must be chosen."",
+            ""priority"": 4
+        }
+    ]
+}
+",deepseek-r1:8b,2025-02-24T16:19:13.5093638Z,136431742800,42204900,278,30352000000,509,106036000000
+Root/Jailbreak Detection Evasion via Debugging,['Instantiate checks within the application code that ensures debuggers are not attached. '],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Code instrumentation to detect debuggers"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Runtime checks for debugger presence"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Anti-debugging mechanisms in code"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Monitoring for unauthorized debuggers"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Code hardening to prevent debugger attachment"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Instantiate checks within the application code that ensures debuggers are not attached."",
+      ""priority"": 6
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:22:02.7871428Z,167224338800,22970900,197,24496000000,606,142703000000
+Escaping a Sandbox by Calling Code in Another Language,"['Assurance: Sanitize the code of the standard libraries to make sure there is no security weaknesses in them. ', 'Design: Use obfuscation and other techniques to prevent reverse engineering the standard libraries. ', 'Assurance: Use static analysis tool to do code review and dynamic tool to do penetration test on the standard library. ', 'Configuration: Get latest updates for the computer. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Sanitized Standard Libraries"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Obfuscated Standard Libraries"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Comprehensive Code Review and Penetration Testing"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Regular System Updates"",
+      ""priority"": 4
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:24:36.6071888Z,151703234300,57190600,260,35611000000,543,116034000000
+Detect Unpublicized Web Pages,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Web Crawler"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Content Search Engines"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Inbound Link Monitoring"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Website Traffic Analysis"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Manual Penetration Testing"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""API Usage Monitoring"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Filesystem Audits"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Security Awareness Training"",
+      ""priority"": 8
+    },
+    {
+      ""name"": ""Website Updates and Validation"",
+      ""priority"": 9
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:27:59.4237934Z,200722518500,62624000,177,18019000000,898,182638000000
+Detect Unpublicized Web Services,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Real-Time Network Monitoring Tools"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Security Updates and Patches"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Web Application Firewalls (WAF)"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Access Control Lists (ACLs)"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Intrusion Detection Systems (IDS)/Intrusion Prevention Systems (IPS)"",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:32:35.5103528Z,273991669100,54796900,177,17877000000,1165,256048000000
+Screen Temporary Files for Sensitive Information,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Enforce Filesystem Quotas"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Clean Temporary Files Periodically"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Disable Auto-Save Functionality"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Use Secure Temporary File Storage"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Implement Temporary File Overwrite"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Encrypt Temporary Files"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Restrict Temporary File Access"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Scan Temporary Files for Sensitive Data"",
+      ""priority"": 8
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:35:13.9590829Z,156187323000,21402000,178,21734000000,678,134430000000
+Collect Data from Clipboard,"['While copying and pasting of data with the clipboard is a legitimate and practical function, certain situations and context may require the disabling of this feature. Just as certain applications disable screenshot capability, applications that handle highly sensitive information should consider disabling copy and paste functionality. ', 'Employ a robust identification and audit/blocking via using an allowlist of applications on your system. Malware may contain the functionality associated with this attack pattern. ']","
+{
+    ""mitigations"": [
+        {
+            ""name"": ""Disable Clipboard Copying"",
+            ""priority"": 1
+        },
+        {
+            ""name"": ""Restrict Application Whitelisting"",
+            ""priority"": 2
+        }
+    ]
+}
+",deepseek-r1:8b,2025-02-24T16:38:15.0763142Z,179057225400,47781500,261,28277000000,794,150730000000
+Collect Data from Registries,"['Employ a robust and layered defensive posture in order to prevent unauthorized users on your system. ', 'Employ robust identification and audit/blocking via using an allowlist of applications on your system. Unnecessary applications, utilities, and configurations will have a presence in the system registry that can be leveraged by an adversary through this attack pattern. ']","
+{
+    ""mitigations"": [
+        {
+            ""name"": ""Employ a robust and layered defensive posture in order to prevent unauthorized users on your system."",
+            ""priority"": 1
+        },
+        {
+            ""name"": ""Employ robust identification and audit/blocking via using an allowlist of applications on your system. Unnecessary applications, utilities, and configurations will have a presence in the system registry that can be leveraged by an adversary through this attack pattern."",
+            ""priority"": 2
+        },
+        {
+            ""name"": ""Implement registry monitoring and alerting to detect unauthorized access or changes in registry entries."",
+            ""priority"": 3
+        },
+        {
+            ""name"": ""Secure configuration of system registries, ensuring only authorized applications and services have access."",
+            ""priority"": 4
+        },
+        {
+            ""name"": ""Limit the privileges of users who can modify system registries to reduce the risk of unintended changes."",
+            ""priority"": 5
+        }
+    ]
+}
+",deepseek-r1:8b,2025-02-24T16:41:01.2297695Z,164081820100,40626800,245,25676000000,715,138363000000
+Collect Data from Screen Capture,"['Identify potentially malicious software that may have functionality to acquire screen captures, and audit and/or block it by using allowlist tools. ', 'While screen capture is a legitimate and practical function, certain situations and context may require the disabling of this feature. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Develop and implement an allowlist for screen capture tools"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Modify system configurations to disable screen capture features when not required"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Use monitoring tools to detect and alert unusual or suspicious screen activity"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Conduct regular audits of applications and systems for unauthorized screen capture capabilities"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Enforce data privacy policies that limit the use of screen capture tools within organizational environments"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Implement user training programs to recognize and report suspicious screen activity related to data collection"",
+      ""priority"": 6
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:44:20.0438772Z,196718451400,47909700,228,23711000000,873,172958000000
+Directory Indexing,"['1. Using blank index.html: putting blank index.html simply prevent directory listings from displaying to site visitors. ', '2. Preventing with .htaccess in Apache web server: In .htaccess, write ""Options-indexes"". ', '3. Suppressing error messages: using error 403 ""Forbidden"" message exactly like error 404 ""Not Found"" message. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Suppressing error messages: Using a 403 Forbidden message instead of a 404 Not Found message."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Using .htaccess in Apache web server: Writing 'Options -Indexes' to prevent directory indexing."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Disabling directory listings in Apache: Configuring the server to return a 403 error when accessing non-existent directories."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Using blank index.html: Creating an empty index.html file in the root directory to prevent directory listing."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Setting appropriate file permissions: Ensuring that files and directories have the correct permissions to prevent unauthorized access."",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:48:28.3157642Z,246204006900,32884800,251,31845000000,1087,214323000000
+Fuzzing for application mapping,"[""Design: Construct a 'code book' for error messages. When using a code book, application error messages aren't generated in string or stack trace form, but are catalogued and replaced with a unique (often integer-based) value 'coding' for the error. Such a technique will require helpdesk and hosting personnel to use a 'code book' or similar mapping to decode application errors/logs in order to respond to them normally. "", ""Design: wrap application functionality (preferably through the underlying framework) in an output encoding scheme that obscures or cleanses error messages to prevent such attacks. Such a technique is often used in conjunction with the above 'code book' suggestion. "", 'Implementation: Obfuscate server fields of HTTP response. ', 'Implementation: Hide inner ordering of HTTP response header. ', 'Implementation: Customizing HTTP error codes such as 404 or 500. ', 'Implementation: Hide HTTP response header software information filed. ', ""Implementation: Hide cookie's software information filed. "", ""Implementation: Obfuscate database type in Database API's error message. ""]","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Construct a 'code book' for error messages."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Wrap application functionality in an output encoding scheme to obscure error messages."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Obfuscate server fields of HTTP response."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Hide inner ordering of HTTP response header."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Customize HTTP error codes such as 404 or 500."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Hide HTTP response header software information field."",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Hide cookie's software information field."",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Obfuscate database type in Database API's error message."",
+      ""priority"": 8
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:51:33.3703879Z,182950670700,45178700,396,51829000000,652,131057000000
+Fuzzing for garnering other adjacent user/sensitive data,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Input Validation"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Rate Limiting"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Data Encryption"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Logging and Monitoring User Activity"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Input Sanitization"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Data Masking"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Access Control"",
+      ""priority"": 7
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:54:29.4688196Z,174005903900,51033900,183,21237000000,748,152715000000
+Cross-Domain Search Timing,"[""Design: The victim's site could protect all potentially sensitive functionality (e.g. search functions) with cross site request forgery (CSRF) protection and not perform any work on behalf of forged requests "", ""Design: The browser's security model could be fixed to not leak timing information for cross domain requests ""]","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Implement Anti-CSRF Tokens for Sensitive Functionalities"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Validate Request Origins for Critical Functionality"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Fix Browser Timing Leaks for Cross-Domain Requests"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Use Asynchronous Communication for Cross-Domain Operations"",
+      ""priority"": 4
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T16:57:15.6644872Z,164129396800,19923400,239,29407000000,649,134698000000
+WSDL Scanning,"['It is important to protect WSDL file or provide limited access to it. ', 'Review the functions exposed by the WSDL interface (especially if you have used a tool to generate it). Make sure that none of them is vulnerable to injection. ', 'Ensure the WSDL does not expose functions and APIs that were not intended to be exposed. ', 'Pay attention to the function naming convention (within the WSDL interface). Easy to guess function name may be an entry point for attack. ', 'Validate the received messages against the WSDL Schema. Incomplete solution. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Protect WSDL files or provide limited access"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Validate received messages against the WSDL schema"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Review functions exposed by the WSDL interface for injection vulnerabilities"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Ensure WSDL does not expose unintended functions or APIs"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Pay attention to function naming conventions in the WSDL interface"",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:00:25.7306648Z,188003278100,21353900,291,37095000000,722,150874000000
+Probe iOS Screenshots,"[""To mitigate this type of an attack, an application that may display sensitive information should clear the screen contents before a screenshot is taken. This can be accomplished by setting the key window's hidden property to YES. This code to hide the contents should be placed in both the applicationWillResignActive() and applicationDidEnterBackground() methods. ""]","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Clear Screen on Resign and Background"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use Secure Screen Capture"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Limit Screenshot Permissions"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Implement Verification Before Screenshot"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Secure Data Storage"",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:04:07.0746455Z,219266467000,30182200,242,30918000000,901,188317000000
+Incomplete Data Deletion in a Multi-Tenant Environment,"['Cloud providers should completely delete data to render it irrecoverable and inaccessible from any layer and component of infrastructure resources. ', 'Deletion of data should be completed promptly when requested. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Encrypt data at rest within all layers of infrastructure resources to ensure complete deletion is traceable and verifiable."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Implement robust access control mechanisms to restrict unauthorized access to data that has been marked for deletion."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Conduct regular audits of data deletion processes to ensure all tenant-specific data is properly handled according to agreements and policies."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Automate the scheduling and execution of data deletion tasks for each tenant, ensuring it occurs promptly after a request is received."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Monitor and log any delays in data deletion processes and provide immediate corrective actions to address issues before they become critical."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Train cloud provider personnel on best practices for data deletion, including understanding tenant-specific requirements and responsibilities."",
+      ""priority"": 6
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:07:12.205434Z,183065676800,27449700,219,27262000000,749,155774000000
+Probe Audio and Video Peripherals,"['Prevent unknown code from executing on a system through the use of an allowlist policy. ', 'Patch installed applications as soon as new updates become available. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Enforce strict allowlist for audio/video peripherals"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use trusted lists for connected devices"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Patch installed applications as soon as updates are available"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Restrict unknown code execution via allowlist"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Implement hardware-based device access control"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Monitor for unusual audio/video peripheral activity"",
+      ""priority"": 6
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:09:49.5725075Z,155295734600,19812800,210,25829000000,629,129445000000
+Probe System Files,"['Verify that files have proper access controls set, and reduce the storage of sensitive information to only what is necessary. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Verify that files have proper access controls set, and reduce the storage of sensitive information to only what is necessary."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Encrypt sensitive system files to prevent unauthorized access or modification."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Implement file integrity monitoring to detect unauthorized changes to system files."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Limit the permissions and access rights for users and processes accessing system files to only what is necessary."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Remove or archive unnecessary system files that are not needed for the operation of the system."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Ensure that sensitive information stored in system files is properly sanitized and does not contain unnecessary data."",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Implement secure deletion policies to remove or overwrite files no longer needed, preventing data recovery by unauthorized parties."",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Conduct regular audits of system file permissions and access controls to identify and correct misconfigurations."",
+      ""priority"": 8
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:12:42.9467186Z,171301765800,18410000,198,24262000000,714,147019000000
+Capture Credentials via Keylogger,['Strong physical security can help reduce the ability of an adversary to install a keylogger. '],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Physical security"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Network monitoring for unusual traffic patterns"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Data encryption for transmitted credentials"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Hardware-based authentication for privileged access"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Regular software updates and patches for vulnerabilities"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Secure remote access protocols with multi-factor authentication"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Employee training on security awareness and keylogger detection"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Endpoint protection solutions such as antivirus and intrusion detection systems"",
+      ""priority"": 8
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:15:23.0270089Z,158021354200,45273400,195,23392000000,654,134582000000
+Sniffing Network Traffic,"['Obfuscate network traffic through encryption to prevent its readability by network sniffers. ', 'Employ appropriate levels of segmentation to your network in accordance with best practices. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Obfuscate network traffic through encryption"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Employ appropriate levels of segmentation"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Use HTTPS instead of HTTP"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Implement VLANs for network separation"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Deploy firewalls with packet filtering"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Utilize Intrusion Detection Systems (IDS)/Intrusion Prevention Systems (IPS)"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Limit access to sensitive networks"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Regular network device updates and patches"",
+      ""priority"": 8
+    },
+    {
+      ""name"": ""Encrypt all network data transmissions"",
+      ""priority"": 9
+    },
+    {
+      ""name"": ""Network traffic logging and monitoring"",
+      ""priority"": 10
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:20:04.7731387Z,279688325600,21121800,210,25978000000,1207,253687000000
+Utilizing REST's Trust in the System Resource to Obtain Sensitive Data,"['Implementation: Implement message level security such as HMAC in the HTTP communication ', 'Design: Utilize defense in depth, do not rely on a single security mechanism like SSL ', 'Design: Enforce principle of least privilege ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Implementation: Implement message level security such as HMAC in the HTTP communication"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Design: Utilize defense in depth, do not rely on a single security mechanism like SSL"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Design: Enforce principle of least privilege"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Implementation: Encrypt sensitive data before transmission to prevent unauthorized access"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Implementation: Use OAuth 2.0 with token validation and refresh mechanisms to ensure secure API access"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Design: Validate and sanitize inputs received through REST endpoints to prevent malicious data injection"",
+      ""priority"": 6
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:23:05.1012068Z,178258343900,31844600,230,28616000000,715,149607000000
+Sniff Application Code,"['Design: Encrypt all communication between the client and server. ', 'Implementation: Use SSL, SSH, SCP. ', 'Operation: Use ""ifconfig/ipconfig"" or other tools to detect the sniffer installed in the network. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Use SSL, SSH, SCP"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Encrypt all communication between the client and server"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Implement network segmentation to limit sniffing"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Deploy intrusion detection systems (IDS) for monitoring"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Use endpoint protection solutions to detect sniffer tools"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Implement VPNs for secure remote access"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Detect and remove sniffers using ifconfig/ipconfig or similar tools"",
+      ""priority"": 7
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:26:41.9384312Z,214774858200,31105400,223,27408000000,901,187333000000
+Android Activity Hijack,"[""To mitigate this type of an attack, explicit intents should be used whenever sensitive data is being sent. An 'explicit intent' is delivered to a specific application as declared within the intent, whereas an 'implicit intent' is directed to an application as defined by the Android operating system. If an implicit intent must be used, then it should be assumed that the intent will be received by an unknown application and any response should be treated accordingly (i.e., with appropriate security controls). "", 'Never use implicit intents for inter-application communication. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Use Explicit Intents for Sensitive Data"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Avoid Implicit Intents in Inter-App Communication"",
+      ""priority"": 2
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:29:03.970297Z,139972708100,22672900,283,36191000000,505,103757000000
+Probe Audio and Video Peripherals,"['Prevent unknown code from executing on a system through the use of an allowlist policy. ', 'Patch installed applications as soon as new updates become available. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Prevent unknown code from executing on a system through the use of an allowlist policy."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Patch installed applications as soon as new updates become available."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Control physical access to audio and video peripherals by restricting unauthorized personnel from adjusting settings or connecting devices."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Implement network segmentation to isolate audio/video systems from the rest of the network."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Use role-based access controls to ensure only authorized personnel can manage audio/video peripherals."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Regularly update firmware on audio/video peripherals to patch known vulnerabilities."",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Monitor for unauthorized connections or devices connected to audio/video systems."",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Implement user training programs to recognize and report suspicious activities related to audio/video peripherals."",
+      ""priority"": 8
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:32:40.9616915Z,214934088700,29623700,210,25544000000,909,189360000000
+Restful Privilege Elevation,"['Design: Enforce principle of least privilege ', 'Implementation: Ensure that HTTP Get methods only retrieve state and do not alter state on the server side ', 'Implementation: Ensure that HTTP methods have proper ACLs based on what the functionality they expose ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Enforce principle of least privilege"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Restrict HTTP Get methods to only retrieve state and not alter it on the server side"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Implement proper ACLs for HTTP methods based on their functionality"",
+      ""priority"": 3
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:34:55.053723Z,132047629800,29797000,227,28492000000,507,103520000000
+Create files with the same name as files protected with a higher classification,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Enforce unique file naming policies for protected files"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Implement file integrity checks to detect duplicate filenames"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Limit access to higher classification files to authorized users only"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Periodically audit for duplicate filenames in protected directories"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Educate users on the risks of duplicating file names with protected classifications"",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:37:03.437938Z,126305150400,20159500,184,21834000000,510,104448000000
+Force Use of Corrupted Files,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Implement File Integrity Monitoring"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use File Hash Validation"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Encrypt Sensitive Files"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Apply Data Sanitization to Incoming Files"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Patch or Update File Integrity Tools Regularly"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Conduct Regular File Audits"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Educate Users on File Verification Techniques"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Use Checksums for File Validation"",
+      ""priority"": 8
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:40:13.0204404Z,187521868600,37525100,177,21158000000,803,166325000000
+Modify Shared File,['Disallow shared content. Protect shared folders by minimizing users that have write access. Use utilities that mitigate exploitation like the Microsoft Enhanced Mitigation Experience Toolkit (EMET) to prevent exploits from being run. '],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Disallow shared content by enforcing access controls and permissions."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Modify file-sharing policies to restrict access to shared folders based on role or user necessity."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Use tools like the Microsoft Enhanced Mitigation Experience Toolkit (EMET) to prevent exploit execution from shared files."",
+      ""priority"": 3
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:43:45.9152025Z,210809640200,39682700,215,26576000000,887,184192000000
+Add Malicious File to Shared Webroot,['Ensure proper permissions on directories that are accessible through a web server. Disallow remote access to the web root. Disable execution on directories within the web root. Ensure that permissions of the web server process are only what is required by not using built-in accounts and instead create specific accounts to limit unnecessary access or permissions overlap across multiple systems. '],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Ensure directories accessible via web server have secure permissions."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use chmod or similar commands to set directory permissions to non-executable where necessary."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Create specific user accounts for the web server process instead of using built-in accounts."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Remove any default, unused features or directories from the web root to minimize attack vectors."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Disallow remote access to directories through FTP or other file transfer protocols."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Set directory mode to non-executable (e.g., 755) for web root directories to prevent malicious file execution."",
+      ""priority"": 6
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-24T17:48:23.7140759Z,275723558600,19920200,247,30947000000,1161,244742000000
+Replace Binaries,['Insure that binaries commonly used by the system have the correct file permissions. Set operating system policies that restrict privilege elevation of non-Administrators. Use auditing tools to observe changes to system services. '],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Ensure binaries have appropriate file permissions"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Restrict privilege elevation for non-administrators"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Monitor system service changes using auditing tools"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Use file integrity checking tools to verify binary files"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Limit installation sources for binaries to trusted repositories"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Implement a binary update and patch management process"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Maintain a whitelist of allowed binaries"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Enforce least privilege policies for system services"",
+      ""priority"": 8
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T08:49:12.85845Z,175505001900,11736035700,215,32128000000,654,131637000000
+Upload a Web Shell to a Web Server,"['Make sure your web server is up-to-date with all patches to protect against known vulnerabilities. ', 'Ensure that the file permissions in directories on the web server from which files can be execute is set to the ""least privilege"" settings, and that those directories contents is controlled by an allowlist. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Make sure your web server is up-to-date with all patches to protect against known vulnerabilities."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Ensure that the file permissions in directories on the web server from which files can be executed are set to the 'least privilege' settings, and that those directories' contents is controlled by an allowlist."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Implement a Web Application Firewall (WAF) to monitor and block malicious traffic targeting the web server."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Restrict file ownership and permissions on the web server, ensuring that only authorized users have access to critical files and directories."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Use network segmentation to isolate the web server from other internal networks and reduce its attack surface."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Implement multi-factor authentication (MFA) for all administrative accounts accessing the web server."",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Use intrusion detection and prevention systems (IDPS) to monitor for unauthorized access attempts and malicious activity on the web server."",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Develop and maintain an incident response plan (IRP) to quickly identify and mitigate potential breaches involving the web server."",
+      ""priority"": 8
+    },
+    {
+      ""name"": ""Regularly perform security audits on the web server to identify and remediate vulnerabilities before they can be exploited."",
+      ""priority"": 9
+    },
+    {
+      ""name"": ""Implement file integrity monitoring (FIM) to detect unauthorized changes in critical files and directories on the web server."",
+      ""priority"": 10
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T08:52:47.3789329Z,211729799100,63799300,240,28650000000,814,183013000000
+Exploiting Incorrect Chaining or Granularity of Hardware Debug Components,"['Implement: Ensure that debug components are properly chained, and their granularity is maintained at different authorization levels ', 'Perform Post-silicon validation tests at various authorization levels to ensure that debug components are only accessible to authorized users ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Ensure that debug components are properly chained, and their granularity is maintained at different authorization levels"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Perform Post-silicon validation tests at various authorization levels to ensure that debug components are only accessible to authorized users"",
+      ""priority"": 2
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T08:55:02.473668Z,133059552200,50240700,229,29126000000,482,103880000000
+Serialized Data External Linking,['Configure the serialized data processor to only retrieve external entities from trusted sources. '],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Configure the serialized data processor to only retrieve external entities from trusted sources."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Implement data validation and sanitization before processing external links."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Restrict input fields to only allow specific encoding or decoding that prevents external linking."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Use rate limiting on external entity retrievals to reduce potential attack vectors."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Deploy a web application firewall (WAF) to block unauthorized external links."",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T08:57:41.2543972Z,156731352300,32003300,192,24367000000,615,132329000000
+Buffer Overflow via Environment Variables,"['Do not expose environment variable to the user. ', 'Do not use untrusted data in your environment variables. ', 'Use a language or compiler that performs automatic bounds checking ', 'There are tools such as Sharefuzz [<a href=""#REF-2"">REF-2</a>] which is an environment variable fuzzer for Unix that support loading a shared library. You can use Sharefuzz to determine if you are exposing an environment variable vulnerable to buffer overflow. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Do not expose environment variable to the user."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Do not use untrusted data in your environment variables."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Use a language or compiler that performs automatic bounds checking."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Use tools such as Sharefuzz [REF-2] to test for buffer overflow vulnerabilities in environment variables."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Encrypt sensitive environment variables."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Sanitize input that is used in environment variable assignments."",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Regularly review and update environment variables to ensure they are necessary and secure."",
+      ""priority"": 7
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T09:00:34.5223394Z,171225806200,59468200,272,33812000000,600,137352000000
+Client-side Injection-induced Buffer Overflow,"['The client software should not install untrusted code from a non-authenticated server. ', 'The client software should have the latest patches and should be audited for vulnerabilities before being used to communicate with potentially hostile servers. ', 'Perform input validation for length of buffer inputs. ', 'Use a language or compiler that performs automatic bounds checking. ', 'Use an abstraction library to abstract away risky APIs. Not a complete solution. ', 'Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution. ', 'Ensure all buffer uses are consistently bounds-checked. ', 'Use OS-level preventative functionality. Not a complete solution. ']","
+{
+    ""mitigations"": [
+        {
+            ""name"": ""Client software should not install untrusted code from a non-authenticated server."",
+            ""priority"": 1
+        },
+        {
+            ""name"": ""The client software should have the latest patches and should be audited for vulnerabilities before being used to communicate with potentially hostile servers."",
+            ""priority"": 3
+        },
+        {
+            ""name"": ""Perform input validation for length of buffer inputs."",
+            ""priority"": 2
+        },
+        {
+            ""name"": ""Use a language or compiler that performs automatic bounds checking."",
+            ""priority"": 4
+        },
+        {
+            ""name"": ""Use an abstraction library to abstract away risky APIs. Not a complete solution."",
+            ""priority"": 5
+        },
+        {
+            ""name"": ""Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution."",
+            ""priority"": 7
+        },
+        {
+            ""name"": ""Ensure all buffer uses are consistently bounds-checked."",
+            ""priority"": 6
+        },
+        {
+            ""name"": ""Use OS-level preventative functionality. Not a complete solution."",
+            ""priority"": 8
+        }
+    ]
+}
+",deepseek-r1:8b,2025-02-25T09:06:36.928703Z,360345507200,43193500,324,42408000000,1359,317892000000
+Filter Failure through Buffer Overflow,"['Make sure that ANY failure occurring in the filtering or input validation routine is properly handled and that offending input is NOT allowed to go through. Basically make sure that the vault is closed when failure occurs. ', 'Pre-design: Use a language or compiler that performs automatic bounds checking. ', 'Pre-design through Build: Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution. ', 'Operational: Use OS-level preventative functionality. Not a complete solution. ', 'Design: Use an abstraction library to abstract away risky APIs. Not a complete solution. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Process Improvements: Implement failure handling for filtering and input validation routines to ensure invalid inputs are blocked immediately."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Pre-design with Automatic Bounds Checking: Use a programming language or compiler that provides automatic bounds checking during the design phase."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Build with Canary Mechanisms: Incorporate static analysis tools like StackGuard, ProPolice, or Visual Studio's GS flag to add canaries during compilation."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Operational Preventative Measures: Utilize OS-level mechanisms and alerts to detect and block invalid inputs that bypass filtering layers."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Design with Abstraction Libraries: Implement abstraction libraries to abstract risky API calls and enforce safe input handling at the design level."",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T09:10:02.4769505Z,203478118600,49957900,310,41236000000,743,162186000000
+SOAP Array Overflow,"['If the server either verifies the correctness of the stated array size or if the server stops processing an array once the stated number of elements have been read, regardless of the actual array size, then this attack will fail. The former detects the malformed SOAP message while the latter ensures that the server does not attempt to load more data than was allocated for. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Verify Array Size Correctness"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Stop Processing After Stated Number"",
+      ""priority"": 2
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T09:11:52.8135617Z,108298472900,48678700,245,31222000000,375,77026000000
+MIME Conversion,"['Stay up to date with third party vendor patches ', '<p>Disable the 7 to 8 bit conversion. This can be done by removing the F=9 flag from all Mailer specifications in the sendmail.cf file. </p><p>For example, a sendmail.cf file with these changes applied should look similar to (depending on your system and configuration): </p><div style=""margin-left:1em;"" class=""informative"">Mlocal, P=/usr/libexec/mail.local, F=lsDFMAw5:/|@qrmn, S=10/30, R=20/40, <div style=""margin-left:1em;"">T=DNS/RFC822/X-Unix, <br>A=mail -d $u </div><br>Mprog, P=/bin/sh, F=lsDFMoqeu, S=10/30, R=20/40, <div style=""margin-left:1em;"">D=$z:/, <br>T=X-Unix, <br>A=sh -c $u </div></div><p>This can be achieved for the ""Mlocal"" and ""Mprog"" Mailers by modifying the "".mc"" file to include the following lines: </p><div style=""margin-left:1em;"" class=""informative"">define(`LOCAL_MAILER_FLAGS\', <div style=""margin-left:1em;"">ifdef(`LOCAL_MAILER_FLAGS\', <div style=""margin-left:1em;"">`translit(LOCAL_MAILER_FLAGS, `9\')\', <br>`rmn\')) </div></div><br>define(`LOCAL_SHELL_FLAGS\', <div style=""margin-left:1em;"">ifdef(`LOCAL_SHELL_FLAGS\', <div style=""margin-left:1em;"">`translit(LOCAL_SHELL_FLAGS, `9\')\', <br>`eu\')) </div></div></div><p>and then rebuilding the sendmail.cf file using m4(1). </p><p>From ""Exploiting Software"", please see reference below. </p>', 'Use the sendmail restricted shell program (smrsh) ', 'Use mail.local ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Patch Vendor Components Regularly"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Disable 7-8 Bit Conversion Flags"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Use Sendmail Restricted Shell (smrsh)"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Switch to mail.local"",
+      ""priority"": 3
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T09:14:38.5629499Z,163698565500,36490800,627,78765000000,419,84894000000
+Overflow Binary Resource File,"['Perform appropriate bounds checking on all buffers. ', 'Design: Enforce principle of least privilege ', 'Design: Static code analysis ', 'Implementation: Execute program in less trusted process space environment, do not allow lower integrity processes to write to higher integrity processes ', 'Implementation: Keep software patched to ensure that known vulnerabilities are not available for adversaries to target on host. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Perform appropriate bounds checking on all buffers."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Enforce principle of least privilege."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Design: static code analysis."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Implementation: execute in less trusted process space (sandboxing)."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Keep software patched."",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Runtime protection mechanisms (e.g., stack canaries)."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""File integrity monitoring tools."",
+      ""priority"": 7
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T09:22:35.7616854Z,475160852000,26219900,249,31445000000,1925,443674000000
+Buffer Overflow via Symbolic Links,"['Pay attention to the fact that the resource you read from can be a replaced by a Symbolic link. You can do a Symlink check before reading the file and decide that this is not a legitimate way of accessing the resource. ', 'Because Symlink can be modified by an adversary, make sure that the ones you read are located in protected directories. ', 'Pay attention to the resource pointed to by your symlink links (See attack pattern named ""Forced Symlink race""), they can be replaced by malicious resources. ', 'Always check the size of the input data before copying to a buffer. ', 'Use a language or compiler that performs automatic bounds checking. ', 'Use an abstraction library to abstract away risky APIs. Not a complete solution. ', 'Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution. ', 'Use OS-level preventative functionality. Not a complete solution. ']","
+[
+    {
+        ""name"": ""Use a language or compiler that performs automatic bounds checking."",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Always check the size of the input data before copying to a buffer."",
+        ""priority"": 4
+    },
+    {
+        ""name"": ""Use an abstraction library to abstract away risky APIs. Not a complete solution."",
+        ""priority"": 3
+    },
+    {
+        ""name"": ""Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution."",
+        ""priority"": 2
+    },
+    {
+        ""name"": ""Check that symlinks point only to trusted resources (e.g., by verifying their target paths)."",
+        ""priority"": 5
+    },
+    {
+        ""name"": ""Use OS-level preventative functionality. Not a complete solution."",
+        ""priority"": 6
+    }
+]
+",deepseek-r1:8b,2025-02-25T09:35:42.1263653Z,475160845998,38146100,379,52541000000,2655,731664000000
+Overflow Variables and Tags,"['Use a language or compiler that performs automatic bounds checking. ', 'Use an abstraction library to abstract away risky APIs. Not a complete solution. ', 'Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution. ', 'Use OS-level preventative functionality. Not a complete solution. ', 'Do not trust input data from user. Validate all user input. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Use a language or compiler that performs automatic bounds checking."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use runtime protection mechanisms like AddressSanitizer or Valgrind."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Implement input validation and sanitization frameworks to validate all user inputs."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Use secure and well-vetted libraries that handle overflow risks internally."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Perform regular static analysis and code review for potential overflow issues."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Enforce memory management best practices to prevent overflow from untrusted data."",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Use exception handling mechanisms to catch unexpected conditions that may lead to overflows."",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Use abstraction libraries or frameworks to mitigate risky API usages."",
+      ""priority"": 8
+    },
+    {
+      ""name"": ""Implement OS-level preventative functionality to isolate and control potential overflow vectors."",
+      ""priority"": 9
+    },
+    {
+      ""name"": ""Use compiler-based canary mechanisms such as StackGuard, ProPolice, or the Microsoft Visual Studio /GS flag (only if automatic bounds checking is provided)."",
+      ""priority"": 10
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T09:41:58.0002864Z,373582243200,79890100,270,60548000000,948,312924000000
+Buffer Overflow via Parameter Expansion,['Ensure that when parameter expansion happens in the code that the assumptions used to determine the resulting size of the parameter are accurate and that the new size of the parameter is visible to the whole system '],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Parameter Expansion Size Validation"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Input Parameter Length Check Before Expansion"",
+      ""priority"": 2
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T09:44:42.0621112Z,161931267700,49875600,215,43671000000,372,118208000000
+String Format Overflow in syslog(),"['<p>The code should be reviewed for misuse of the Syslog function call. Manual or automated code review can be used. The reviewer needs to ensure that all format string functions are passed a static string which cannot be controlled by the user and that the proper number of arguments are always sent to that function as well. If at all possible, do not use the %n operator in format strings. The following code shows a correct usage of Syslog(): </p><div style=""margin-left:1em;"" class=""good"">syslog(LOG_ERR, ""%s"", cmdBuf); </div><p>The following code shows a vulnerable usage of Syslog(): </p><div style=""margin-left:1em;"" class=""bad"">syslog(LOG_ERR, cmdBuf); <div><i>// the buffer cmdBuff is taking user supplied data. </i></div></div>']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Manual or Automated Code Review"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Sanitizing Input Before Use"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Disabling or Restricting Syslog Functionality"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Implementing Input Validation and Sanitization"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Avoiding Use of %n Format Specifier"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Using Safe Logging Libraries or Frameworks"",
+      ""priority"": 6
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T09:51:01.6764098Z,377531335700,43317700,355,76127000000,915,301346000000
+Buffer Overflow in an API Call,"['Use a language or compiler that performs automatic bounds checking. ', 'Use secure functions not vulnerable to buffer overflow. ', 'If you have to use dangerous functions, make sure that you do boundary checking. ', 'Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution. ', 'Use OS-level preventative functionality. Not a complete solution. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Use a language or compiler that performs automatic bounds checking."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use secure functions not vulnerable to buffer overflow."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""If you have to use dangerous functions, make sure that you do boundary checking."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Use OS-level preventative functionality. Not a complete solution."",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T09:56:22.1192404Z,318303139700,80232300,269,55566000000,780,262655000000
+Buffer Overflow in Local Command-Line Utilities,"[""Carefully review the service's implementation before making it available to user. For instance you can use manual or automated code review to uncover vulnerabilities such as buffer overflow. "", 'Use a language or compiler that performs automatic bounds checking. ', 'Use an abstraction library to abstract away risky APIs. Not a complete solution. ', 'Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution. ', 'Operational: Use OS-level preventative functionality. Not a complete solution. ', 'Apply the latest patches to your user exposed services. This may not be a complete solution, especially against a zero day attack. ', 'Do not unnecessarily expose services. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Use a language or compiler that performs automatic bounds checking."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Apply the latest patches to your user exposed services."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Do not unnecessarily expose services."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Use an abstraction library to abstract away risky APIs."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Operational: Use OS-level preventative functionality."",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Carefully review the service's implementation before making it available to users."",
+      ""priority"": 4
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T10:01:45.9335518Z,321695311100,52216200,330,71398000000,758,250231000000
+XML Ping of the Death,"['Design: Build throttling mechanism into the resource allocation. Provide for a timeout mechanism for allocated resources whose transaction does not complete within a specified interval. ', 'Implementation: Provide for network flow control and traffic shaping to control access to the resources. ']","
+[
+    {
+        ""name"": ""Resource Allocation Throttling"",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""XML Processing Limitation"",
+        ""priority"": 2
+    },
+    {
+        ""name"": ""Network Flow Control"",
+        ""priority"": 3
+    },
+    {
+        ""name"": ""Session Timeout Mechanism"",
+        ""priority"": 4
+    }
+]
+",deepseek-r1:8b,2025-02-25T10:06:34.217686Z,286171273100,52175800,226,46085000000,693,240029000000
+Exponential Data Expansion,"['Design: Use libraries and templates that minimize unfiltered input. Use methods that limit entity expansion and throw exceptions on attempted entity expansion. ', 'Implementation: For XML based data - disable altogether the use of inline DTD schemas when parsing XML objects. If a DTD must be used, normalize, filter and use an allowlist and parse with methods and routines that will detect entity expansion from untrusted sources. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Use libraries and templates that minimize unfiltered input."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Implement methods that limit entity expansion and throw exceptions on attempted entity expansion."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Disable the use of inline DTD schemas when parsing XML objects."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Use allowlists and parse with methods that detect entity expansion from untrusted sources."",
+      ""priority"": 4
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T10:10:10.7332993Z,214384852200,77031400,258,64394000000,749,149907000000
+Quadratic Data Expansion,"['Design: Use libraries and templates that minimize unfiltered input. Use methods that limit entity expansion and throw exceptions on attempted entity expansion. ', 'Implementation: For XML based data - disable altogether the use of inline DTD schemas when parsing XML objects. If a DTD must be used, normalize, filter and use an allowlist and parse with methods and routines that will detect entity expansion from untrusted sources. ']","
+{
+    ""mitigations"": [
+        {
+            ""name"": ""Use libraries and templates that minimize unfiltered input. Use methods that limit entity expansion and throw exceptions on attempted entity expansion."",
+            ""priority"": 1
+        },
+        {
+            ""name"": ""Disable altogether the use of inline DTD schemas when parsing XML objects. If a DTD must be used, normalize, filter and use an allowlist and parse with methods and routines that will detect entity expansion from untrusted sources."",
+            ""priority"": 2
+        },
+        {
+            ""name"": ""Implement input validation mechanisms to ensure all inputs undergo thorough checking before processing."",
+            ""priority"": 3
+        },
+        {
+            ""name"": ""Use data sanitization tools or methods to clean and normalize input, removing any potentially harmful entities."",
+            ""priority"": 4
+        },
+        {
+            ""name"": ""Implement additional checks for entity expansion after expansion occurs to ensure the data is safe and does not introduce unintended consequences."",
+            ""priority"": 5
+        },
+        {
+            ""name"": ""Restrict data processing to only trusted sources and use validated data pipelines to minimize the risk of untrusted data causing issues."",
+            ""priority"": 6
+        }
+    ]
+}
+",deepseek-r1:8b,2025-02-25T10:13:43.152925Z,210325730700,42599100,258,32863000000,808,177419000000
+Data Serialization External Entities Blowup,"['This attack may be mitigated by tweaking the XML parser to not resolve external entities. If external entities are needed, then implement a custom XmlResolver that has a request timeout, data retrieval limit, and restrict resources it can retrieve locally. ', 'This attack may be mitigated by tweaking the serialized data parser to not resolve external entities. If external entities are needed, then implement a custom resolver that has a request timeout, data retrieval limit, and restrict resources it can retrieve locally. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Disabling External Entity Expansion in XML Parsing"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Implementing a Custom Resolver with Timeouts for External Entities"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Limiting the Number of External Entity Expansions During Parsing"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Using a Secure, Internal Resolver for External Entity Resolution"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Encrypting and Signing Sensitive Data to Prevent Tampering"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Regularly Updating and Verifying External Libraries Used"",
+      ""priority"": 6
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T10:19:09.6269154Z,324414356700,41291200,275,37470000000,1155,286902000000
+Serialized Data Parameter Blowup,"['This attack may be mitigated completely by using a parser that is not using a vulnerable container. ', 'Mitigation may limit the number of configuration parameters per dataset. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Use a parser that does not rely on a vulnerable container"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Limit the number of configuration parameters per dataset"",
+      ""priority"": 2
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T10:22:34.5263634Z,202780202600,73462300,211,27919000000,753,174786000000
+Using Meta-characters in E-mail Headers to Inject Malicious Payloads,"['Design: Perform validation on email header data ', 'Implementation: Implement email filtering solutions on mail server or on MTA, relay server. ', 'Implementation: Mail servers that perform strict validation may catch these attacks, because metacharacters are not allowed in many header variables such as dns names ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Design: Perform validation on email header data"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Implementation: Implement email filtering solutions on mail server or on MTA, relay server."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Implementation: Mail servers that perform strict validation may catch these attacks, because metacharacters are not allowed in many header variables such as dns names"",
+      ""priority"": 3
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T10:55:57.1095884Z,184445458800,11197843100,245,43712000000,583,129500000000
+HTTP Parameter Pollution (HPP),"['Configuration: If using a Web Application Firewall (WAF), filters should be carefully configured to detect abnormal HTTP requests ', 'Design: Perform URL encoding ', 'Implementation: Use strict regular expressions in URL rewriting ', 'Implementation: Beware of multiple occurrences of a parameter in a Query String ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Configuration: If using a Web Application Firewall (WAF), filters should be carefully configured to detect abnormal HTTP requests"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Design: Perform URL encoding"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Implementation: Use strict regular expressions in URL rewriting"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Implementation: Beware of multiple occurrences of a parameter in a Query String"",
+      ""priority"": 4
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T10:58:43.450679Z,163463037500,58473600,235,30631000000,585,132772000000
+Flash Parameter Injection,"[""User input must be sanitized according to context before reflected back to the user. The JavaScript function 'encodeURI' is not always sufficient for sanitizing input intended for global Flash parameters. Extreme caution should be taken when saving user input in Flash cookies. In such cases the Flash file itself will need to be fixed and recompiled, changing the name of the local shared objects (Flash cookies). ""]","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Input Sanitization"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Parameter Validation"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""JavaScript Sandboxing"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Output Encoding"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Flash Cookie Management"",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:02:14.6417296Z,209129289500,47612400,253,35237000000,639,173840000000
+Cross-Site Flashing,"['Implementation: Only allow known URL to be included as remote flash movies in a flash application ', 'Configuration: Properly configure the crossdomain.xml file to only include the known domains that should host remote flash movies. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Implement a Content Security Policy (CSP) to restrict where external SWF files can be loaded from."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Sanitize and validate all user-provided URLs before incorporating them into SWF content."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Properly configure the crossdomain.xml file to only allow trusted domains for flash content hosting."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Use Web Application Firewalls (WAFs) to monitor and block malicious requests related to SWF injections."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Limit the playback of SWF files by restricting their execution time or disabling auto-play features."",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:08:25.7899186Z,368843958600,53091700,220,38553000000,1164,330236000000
+Checksum Spoofing,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Implement cryptographic hash verification for checksum validation"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use secure and trusted data signing mechanisms to verify checksum integrity"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Enforce the use of encrypted communication channels for transmitting checksums"",
+      ""priority"": 3
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:12:08.5917617Z,220604681600,38541100,175,27570000000,703,192993000000
+Spoofing of UDDI/ebXML Messages,"['Implementation: Clients should only trust UDDI, ebXML, or similar messages that are verifiably signed by a trusted party. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Message Signature Verification"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use of HMACs for Data Protection"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Role-Based Access Control (RBAC)"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""White List for Trusted Senders"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Message Validation and Integrity Check"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Centralized Message Processing with Authentication"",
+      ""priority"": 6
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:15:58.5572965Z,227823514700,45259700,211,27950000000,748,199820000000
+DNS Rebinding,"['Design: IP Pinning causes browsers to record the IP address to which a given name resolves and continue using this address regardless of the TTL set in the DNS response. Unfortunately, this is incompatible with the design of some legitimate sites. ', 'Implementation: Reject HTTP request with a malicious Host header. ', 'Implementation: Employ DNS resolvers that prevent external names from resolving to internal addresses. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Block DNS Cache Poisoning"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use Non-Recursive DNS Resolvers"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Implement DNSSEC"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Monitor and Block Malicious Host Headers"",
+      ""priority"": 4
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:18:55.0452001Z,174355084000,38505100,253,41437000000,483,132875000000
+DNS Spoofing,"['Design: Avoid dependence on DNS ', 'Design: Include ""hosts file""/IP address in the application ', 'Implementation: Utilize a .onion domain with Tor support ', 'Implementation: DNSSEC ', 'Implementation: DNS-hold-open ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Implement DNSSEC"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Avoid dependence on DNS by using an alternative resolution method"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Utilize a .onion domain with Tor support for internal communication"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Use DNS-hold-open to ensure DNS queries are not dropped prematurely"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Include specific IP addresses or hosts in the application's configuration to limit DNS resolution"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Implement DNSSecured DNS over TLS (DoT)"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Use DNS resolvers with predefined configurations such as SPF and DMARC for filtering"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Segment the network to isolate DNS servers from other systems"",
+      ""priority"": 8
+    },
+    {
+      ""name"": ""Implement network monitoring tools to detect DNS query anomalies"",
+      ""priority"": 9
+    },
+    {
+      ""name"": ""Apply rate limiting on DNS queries to prevent flooding attacks"",
+      ""priority"": 10
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:23:46.7644991Z,289346385600,33113000,225,32361000000,1017,256950000000
+Token Impersonation,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Token Validation"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Token Rotation"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Multi-Factor Authentication (MFA)"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Secure Token Storage"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Token Binding"",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:26:36.7104879Z,167813240300,44844600,175,22333000000,617,145433000000
+Creating a Rogue Certification Authority Certificate,['Certification Authorities need to stop using deprecated or cryptographically insecure hashing algorithms to hash the certificates that they are about to sign. Instead they should be using stronger hashing functions such as SHA-256 or SHA-512. '],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Stop using deprecated or insecure hashing algorithms for certificates"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Implement monitoring and detection for rogue CA certificates"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Enforce revocation of compromised or rogue CA certificates"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Identify and replace any certificates issued by a rogue CA"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Implement certificate pinning for critical systems"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Limit the validity period of certificates issued by trusted CAs"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Conduct regular security audits to detect rogue CA activities"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Implement secure certificate management practices"",
+      ""priority"": 8
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:28:50.4776828Z,131649424100,52209500,222,27592000000,476,104003000000
+Signature Spoofing by Key Theft,"['Restrict access to private keys from non-supervisory accounts ', 'Restrict access to administrative personnel and processes only ', 'Ensure all remote methods are secured ', 'Ensure all services are patched and up to date ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Restrict access to private keys from non-supervisory accounts"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Restrict access to administrative personnel and processes only"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Ensure all remote methods are secured"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Ensure all services are patched and up to date"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Implement role-based access control (RBAC)"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Encrypt private keys at rest"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Audit and log key access for unauthorized attempts"",
+      ""priority"": 7
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:32:32.7248821Z,220115491800,57591400,222,27202000000,905,192852000000
+Signature Spoofing by Improper Validation,['Use programs and products that contain cryptographic elements that have been thoroughly tested for flaws in the signature verification routines. '],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Implement secure cryptographic hash functions for signature validation."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use validated input validation routines before accepting signatures."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Use programs and products that contain cryptographic elements thoroughly tested for signature verification flaws."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Regularly audit and update signature validation algorithms to address known vulnerabilities."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Enforce logging and monitoring of all signature generation and validation processes."",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:34:50.6209242Z,135790450100,48015100,202,23174000000,543,112552000000
+Signature Spoofing by Misrepresentation,"['Ensure the application is using parsing and data display techniques that will accurately display control characters, international symbols and markings, and ultimately recognize potential homograph attacks. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Implement encryption for digital signatures"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use robust parsing techniques to detect control characters and special symbols"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Perform input validation checks before signature creation or display"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Apply encoding standards for international symbols and control characters"",
+      ""priority"": 4
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:37:11.6752255Z,138994759600,42441700,210,24683000000,558,114267000000
+Signature Spoofing by Mixing Signed and Unsigned Content,['Ensure the application is fully patched and does not allow the processing of unsigned data as if it is signed data. '],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Patch all known vulnerabilities in the application to prevent exploitation of signature spoofing."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Enforce strict checks to ensure that unsigned content is not treated as signed content."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Implement data validation mechanisms before processing to detect and reject discrepancies between signed and unsigned content."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Conduct regular application patching to maintain the latest security updates and prevent exploitation vectors related to signature spoofing."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Educate users about the risks of mixing signed and unsigned content and ensure they follow proper handling procedures."",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:40:18.4254612Z,184663944200,49756100,205,23708000000,779,160902000000
+Malicious Root Certificate,[],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Implement Certificate Pinning"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Automate Certificate Validation Checks"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Regularly Update and Validate Trust Stores"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Monitor for Suspicious Certificate Usage"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Detect and Remove Malicious Root Certificates"",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:42:37.6788393Z,137192355200,30478500,175,20677000000,578,116481000000
+Signature Spoofing by Key Recreation,['Ensure cryptographic elements have been sufficiently tested for weaknesses. '],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Implement Certificate Revocation"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Enforce Key Lifecycle Management"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Use Secure Random Number Generation for Key Creation"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Ensure Regular Cryptographic Testing and Validation"",
+      ""priority"": 4
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:44:51.8314181Z,132089796500,52041300,190,22410000000,538,109625000000
+Relative Path Traversal,"['Design: Input validation. Assume that user inputs are malicious. Utilize strict type, character, and encoding enforcement ', 'Implementation: Perform input validation for all remote content, including remote and user-generated content. ', 'Implementation: Validate user input by only accepting known good. Ensure all content that is delivered to client is sanitized against an acceptable content specification -- using an allowlist approach. ', 'Implementation: Prefer working without user input when using file system calls ', 'Implementation: Use indirect references rather than actual file names. ', 'Implementation: Use possible permissions on file access when developing and deploying web applications. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Implement input validation for all remote content, including user-generated"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Validate user input by only accepting known good and sanitize against an allowlist approach"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Prefer working without user input when using file system calls"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Use indirect references rather than actual filenames for accessing resources"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Apply permissions on file access when developing and deploying web applications"",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:48:11.6752037Z,197769252800,46836000,297,39284000000,771,158437000000
+Absolute Path Traversal,"['Design: Configure the access control correctly. ', 'Design: Enforce principle of least privilege. ', 'Design: Execute programs with constrained privileges, so parent process does not open up further vulnerabilities. Ensure that all directories, temporary directories and files, and memory are executing with limited privileges to protect against remote execution. ', 'Design: Input validation. Assume that user inputs are malicious. Utilize strict type, character, and encoding enforcement. ', 'Design: Proxy communication to host, so that communications are terminated at the proxy, sanitizing the requests before forwarding to server host. ', 'Design: Run server interfaces with a non-root account and/or utilize chroot jails or other configuration techniques to constrain privileges even if attacker gains some limited access to commands. ', 'Implementation: Host integrity monitoring for critical files, directories, and processes. The goal of host integrity monitoring is to be aware when a security issue has occurred so that incident response and other forensic activities can begin. ', 'Implementation: Perform input validation for all remote content, including remote and user-generated content. ', 'Implementation: Perform testing such as pen-testing and vulnerability scanning to identify directories, programs, and interfaces that grant direct access to executables. ', 'Implementation: Use indirect references rather than actual file names. ', 'Implementation: Use possible permissions on file access when developing and deploying web applications. ', 'Implementation: Validate user input by only accepting known good. Ensure all content that is delivered to client is sanitized against an acceptable content specification using an allowlist approach. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Design: Enforce principle of least privilege."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Implementation: Perform input validation for all remote content, including user-generated and server-hosted content."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Design: Correctly configure access control to restrict directory traversal and file access."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Implementation: Validate user input by only accepting known good. Use an allowlist approach for content delivery."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Design: Run server interfaces with non-root accounts and/or utilize chroot jails or other privilege confinement techniques."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Design: Implement proxy communication to sanitize requests before forwarding them to the server host."",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Implementation: Perform regular host integrity monitoring for critical files, directories, and processes."",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Implementation: Perform strict input validation with type, character, and encoding enforcement to assume malicious intent in user inputs."",
+      ""priority"": 8
+    },
+    {
+      ""name"": ""Design: Use indirect references instead of actual file names when handling paths and URLs."",
+      ""priority"": 9
+    },
+    {
+      ""name"": ""Implementation: Test directories, programs, and interfaces to identify those that grant direct access to executables through vulnerability scanning and pen-testing."",
+      ""priority"": 10
+    },
+    {
+      ""name"": ""Design: Set proper file access permissions to limit exposure and control what resources can be accessed by non-root processes."",
+      ""priority"": 11
+    },
+    {
+      ""name"": ""Implementation: Use strict type enforcement in input validation to prevent path traversal attacks by validating all user inputs against a known good data set."",
+      ""priority"": 12
+    },
+    {
+      ""name"": ""Implementation: Sanitize remote and user-generated content before processing it to avoid path traversal or injection vulnerabilities."",
+      ""priority"": 13
+    },
+    {
+      ""name"": ""Design: Assume malicious intent in user inputs when validating file paths and URLs, ensuring that all characters are within acceptable specifications."",
+      ""priority"": 14
+    },
+    {
+      ""name"": ""Implementation: Use chroot or other confinement techniques to limit the impact of compromised processes and prevent directory traversal attacks."",
+      ""priority"": 15
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:54:17.7285871Z,363956357200,63486600,482,63710000000,1411,300163000000
+Manipulating Web Input to File System Calls,"['Design: Enforce principle of least privilege. ', 'Design: Ensure all input is validated, and does not contain file system commands ', 'Design: Run server interfaces with a non-root account and/or utilize chroot jails or other configuration techniques to constrain privileges even if attacker gains some limited access to commands. ', 'Design: For interactive user applications, consider if direct file system interface is necessary, instead consider having the application proxy communication. ', 'Implementation: Perform testing such as pen-testing and vulnerability scanning to identify directories, programs, and interfaces that grant direct access to executables. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Enforce principle of least privilege."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Ensure all input is validated, and does not contain file system commands."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Run server interfaces with a non-root account and/or utilize chroot jails or other configuration techniques to constrain privileges even if attacker gains some limited access to commands."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""For interactive user applications, consider if direct file system interface is necessary, instead consider having the application proxy communication."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Perform testing such as pen-testing and vulnerability scanning to identify directories, programs, and interfaces that grant direct access to executables."",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:56:57.1544447Z,157348849100,39168100,297,37127000000,593,120182000000
+Forced Integer Overflow,"['Use a language or compiler that performs automatic bounds checking. ', ""Carefully review the service's implementation before making it available to user. For instance you can use manual or automated code review to uncover vulnerabilities such as integer overflow. "", 'Use an abstraction library to abstract away risky APIs. Not a complete solution. ', 'Always do bound checking before consuming user input data. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Automatic Bounds Checking Compiler"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Code Review for Integer Overflow"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Abstraction Library Usage"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Bound Checking on User Input Data"",
+      ""priority"": 4
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T11:59:57.3430371Z,178122525000,24289900,251,29776000000,727,148308000000
+Double Encoding,"['Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system. Test your decoding process against malicious input. ', 'Be aware of the threat of alternative method of data encoding and obfuscation technique such as IP address encoding. ', 'When client input is required from web-based forms, avoid using the ""GET"" method to submit data, as the method causes the form data to be appended to the URL and is easily manipulated. Instead, use the ""POST method whenever possible. ', 'Any security checks should occur after the data has been decoded and validated as correct data format. Do not repeat decoding process, if bad character are left after decoding process, treat the data as suspicious, and fail the validation process. ', 'Refer to the RFCs to safely decode URL. ', 'Regular expression can be used to match safe URL patterns. However, that may discard valid URL requests if the regular expression is too restrictive. ', 'There are tools to scan HTTP requests to the server for valid URL such as URLScan from Microsoft (http://www.microsoft.com/technet/security/tools/urlscan.mspx). ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Create an allowlist of valid input types"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use POST method for form submissions"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Perform security checks after data decoding and validation"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Refer to RFCs for URL decoding"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Use tools like URLScan for HTTP request scanning"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Use regular expressions cautiously for URL patterns"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Be aware of alternative encoding techniques"",
+      ""priority"": 7
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T12:04:24.5868832Z,265185251200,52051300,428,53289000000,1014,211834000000
+Using Leading 'Ghost' Character Sequences to Bypass Input Filters,"['Use an allowlist rather than a denylist input validation. ', 'Canonicalize all data prior to validation. ', 'Take an iterative approach to input validation (defense in depth). ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Allowlist Input Validation"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Data Canonicalization"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Iterative Input Validation"",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Input Validation Regular Expressions"",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Truncate Input"",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Escape Input Characters"",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Randomized Input Validation Checks"",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Filter by Character Set"",
+      ""priority"": 8
+    },
+    {
+      ""name"": ""Data Redaction"",
+      ""priority"": 9
+    },
+    {
+      ""name"": ""Log and Monitor Input Activity"",
+      ""priority"": 10
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T12:08:55.2897512Z,268620952700,61800200,222,25706000000,1166,242851000000
+Using Alternative IP Address Encodings,"['Design: Default deny access control policies ', 'Design: Input validation routines should check and enforce both input data types and content against a positive specification. In regards to IP addresses, this should include the authorized manner for the application to represent IP addresses and not accept user specified IP addresses and IP address formats (such as ranges) ', 'Implementation: Perform input validation for all remote content. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Default Deny Access Control Policies"",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Authorized IP Address Representation Validation"",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Remote Content Input Validation"",
+      ""priority"": 3
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T12:10:55.5059294Z,118147886300,42401100,255,29928000000,442,88175000000
+Exploiting Multiple Input Interpretation Layers,"['An iterative approach to input validation may be required to ensure that no dangerous characters are present. It may be necessary to implement redundant checking across different input validation layers. Ensure that invalid data is rejected as soon as possible and do not continue to work with it. ', 'Make sure to perform input validation on canonicalized data (i.e. data that is data in its most standard form). This will help avoid tricky encodings getting past the filters. ', 'Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist would not be permitted to enter into the system. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""An iterative approach to input validation may be required to ensure that no dangerous characters are present. It may be necessary to implement redundant checking across different input validation layers. Ensure that invalid data is rejected as soon as possible and do not continue to work with it."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Make sure to perform input validation on canonicalized data (i.e., data that is in its most standard form). This will help avoid tricky encodings getting past the filters."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist would not be permitted to enter into the system."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Sanitize inputs against known attack vectors and patterns before accepting them into the system."",
+      ""priority"": 4
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T12:15:15.5385642Z,257983128100,31825900,317,38664000000,1054,219285000000
+Embedding NULL Bytes,['Properly handle the NULL characters supplied as part of user input prior to doing anything with the data. '],"
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Properly validate and sanitize user input before processing."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use safe string handling functions to prevent null byte injection."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Encode or escape null bytes in the data prior to storage or processing."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Implement additional input validation checks specifically for null characters."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Use secure coding practices that prevent null byte manipulation attacks."",
+      ""priority"": 5
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T12:17:31.639442Z,134026152900,41760900,198,23241000000,557,110739000000
+"Postfix, Null Terminate, and Backslash","['Properly handle Null characters. Make sure canonicalization is properly applied. Do not pass Null characters to the underlying APIs. ', 'Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system. ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Properly handle Null characters. Make sure canonicalization is properly applied. Do not pass Null characters to the underlying APIs."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Ensure Postfix configuration properly handles null-terminated and backslash characters in command inputs, restricting unauthorized commands or scripts."",
+      ""priority"": 3
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T12:19:57.4214659Z,143733391600,51957200,255,30747000000,547,112931000000
+Using Slashes and URL Encoding Combined to Bypass Validation Logic,"['Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system. Test your decoding process against malicious input. ', 'Be aware of the threat of alternative method of data encoding and obfuscation technique such as IP address encoding. ', 'When client input is required from web-based forms, avoid using the ""GET"" method to submit data, as the method causes the form data to be appended to the URL and is easily manipulated. Instead, use the ""POST method whenever possible. ', 'Any security checks should occur after the data has been decoded and validated as correct data format. Do not repeat decoding process, if bad character are left after decoding process, treat the data as suspicious, and fail the validation process. ', 'Refer to the RFCs to safely decode URL. ', 'Regular expression can be used to match safe URL patterns. However, that may discard valid URL requests if the regular expression is too restrictive. ', 'There are tools to scan HTTP requests to the server for valid URL such as URLScan from Microsoft (http://www.microsoft.com/technet/security/tools/urlscan.mspx). ']","
+{
+  ""mitigations"": [
+    {
+      ""name"": ""Create an allowlist that defines all valid input based on requirements and test against malicious inputs."",
+      ""priority"": 1
+    },
+    {
+      ""name"": ""Use POST method for form submissions instead of GET to prevent data being appended to the URL."",
+      ""priority"": 2
+    },
+    {
+      ""name"": ""Decode and validate data before security checks, treating suspicious characters as invalid."",
+      ""priority"": 3
+    },
+    {
+      ""name"": ""Refer to RFCs for safe URL decoding practices."",
+      ""priority"": 4
+    },
+    {
+      ""name"": ""Use regular expressions to match valid URL patterns while avoiding false negatives."",
+      ""priority"": 5
+    },
+    {
+      ""name"": ""Scan HTTP requests using tools like URLScan for invalid URL detection."",
+      ""priority"": 6
+    },
+    {
+      ""name"": ""Implement additional validation checks after decoding to ensure all bad characters are detected."",
+      ""priority"": 7
+    },
+    {
+      ""name"": ""Regularly review and update allowlists based on new requirements or threats."",
+      ""priority"": 8
+    }
+  ]
+}
+",deepseek-r1:8b,2025-02-25T12:23:35.8089176Z,216329565200,50110700,438,55969000000,780,160307000000

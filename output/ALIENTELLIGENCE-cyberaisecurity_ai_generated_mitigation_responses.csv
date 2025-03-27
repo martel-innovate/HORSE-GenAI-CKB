@@ -1,0 +1,2014 @@
+attack,mitigation_list,mitigations_generated,model,created_at,total_duration,load_duration,prompt_eval_count,prompt_eval_duration,eval_count,eval_duration
+Session Credential Falsification through Manipulation,[],"[
+  {
+    ""name"": ""Implement a robust authentication mechanism"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Use secure tokens and session management"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Validate user inputs and requests"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Implement input validation and sanitization"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Use secure protocols for communication"",
+    ""priority"": 5
+  },
+  {
+    ""name"": ""Monitor user sessions and terminate suspicious activity"",
+    ""priority"": 6
+  },
+  {
+    ""name"": ""Implement a Web Application Firewall (WAF) to block suspicious requests"",
+    ""priority"": 7
+  },
+  {
+    ""name"": ""Regularly update and patch software components"",
+    ""priority"": 8
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T09:25:52.635283Z,237429776900,13824431800,491,137763000000,193,85835000000
+Session Credential Falsification through Prediction,"['Use a strong source of randomness to generate a session ID. ', 'Use adequate length session IDs ', 'Do not use information available to the user in order to generate session ID (e.g., time). ', 'Ideas for creating random numbers are offered by Eastlake [RFC1750] ', 'Encrypt the session ID if you expose it to the user. For instance session ID can be stored in a cookie in encrypted format. ']","[
+{
+""name"": ""Use a strong source of randomness to generate a session ID."",
+""priority"": 1
+},
+{
+""name"": ""Use adequate length session IDs"",
+""priority"": 2
+},
+{
+""name"": ""Do not use information available to the user in order to generate session ID (e.g., time)."",
+""priority"": 3
+},
+{
+""name"": ""Encrypt the session ID if you expose it to the user. For instance, session ID can be stored in a cookie in encrypted format."",
+""priority"": 4
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T09:32:48.6228172Z,130522114300,77005100,579,78657000000,114,51783000000
+Session Sidejacking,"['Make sure that HTTPS is used to communicate with the target system. Alternatively, use VPN if possible. It is important to ensure that all communication between the client and the server happens via an encrypted secure channel. ', 'Modify the session token with each transmission and protect it with cryptography. Add the idea of request sequencing that gives the server an ability to detect replay attacks. ']","[
+  {
+    ""name"": ""HTTPS Encryption"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Session Token Cryptography"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Request Sequencing and Replay Detection"",
+    ""priority"": 3
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T09:42:29.9526091Z,222414788400,10583557600,562,181188000000,66,30638000000
+Cross Site Tracing,"[""Administrators should disable support for HTTP TRACE at the destination's web server. Vendors should disable TRACE by default. "", 'Patch web browser against known security origin policy bypass exploits. ']","[
+{
+""name"": ""Disable support for HTTP TRACE at web server"",
+""priority"": 1
+},
+{
+""name"": ""Patch web browser against known security origin policy bypass exploits"",
+""priority"": 2
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T09:51:44.5838172Z,181011332400,5777573500,525,156068000000,45,19158000000
+Reusing Session IDs (aka Session Replay),"['Always invalidate a session ID after the user logout. ', 'Setup a session time out for the session IDs. ', 'Protect the communication between the client and server. For instance it is best practice to use SSL to mitigate adversary in the middle attacks (<a href=""/data/definitions/94.html"">CAPEC-94</a>). ', 'Do not code send session ID with GET method, otherwise the session ID will be copied to the URL. In general avoid writing session IDs in the URLs. URLs can get logged in log files, which are vulnerable to an attacker. ', 'Encrypt the session data associated with the session ID. ', 'Use multifactor authentication. ']","[
+  {
+    ""name"": ""Always invalidate a session ID after the user logout"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Setup a session time out for the session IDs"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Protect the communication between the client and server (SSL)"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Do not code send session ID with GET method, avoid writing session IDs in URLs"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Encrypt the session data associated with the session ID"",
+    ""priority"": 5
+  },
+  {
+    ""name"": ""Use multifactor authentication"",
+    ""priority"": 6
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T09:54:23.2052406Z,155258193500,62186600,627,85464000000,162,69727000000
+Session Fixation,"['Use a strict session management mechanism that only accepts locally generated session identifiers: This prevents attackers from fixating session identifiers of their own choice. ', 'Regenerate and destroy session identifiers when there is a change in the level of privilege: This ensures that even though a potential victim may have followed a link with a fixated identifier, a new one is issued when the level of privilege changes. ', 'Use session identifiers that are difficult to guess or brute-force: One way for the attackers to obtain valid session identifiers is by brute-forcing or guessing them. By choosing session identifiers that are sufficiently random, brute-forcing or guessing becomes very difficult. ']","{
+""mitigations"": [
+  {
+    ""name"": ""Strict Session Management"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Regenerate and Destroy Session Identifiers on Privilege Change"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Use Randomly Generated Session Identifiers"",
+    ""priority"": 3
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T09:56:22.6405468Z,117367536000,47045300,616,82690000000,81,34628000000
+Cross Site Identification,"['Usage: Users should always explicitly log out from the social networking sites when done using them. ', 'Usage: Users should not open other tabs in the browser when using a social networking site. ']","[
+  {
+    ""name"": ""Explicit Logging Out"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Separate Browser Sessions"",
+    ""priority"": 2
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T09:57:47.622231Z,82923929400,32239700,526,63334000000,44,19553000000
+"Removal of filters: Input filters, output filters, data masking",[],"[
+    {
+        ""name"": ""Implement Input Validation"",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Use Sanitization Techniques"",
+        ""priority"": 2
+    },
+    {
+        ""name"": ""Configure Data Loss Prevention (DLP) System"",
+        ""priority"": 3
+    },
+    {
+        ""name"": ""Enforce Least Privilege Principle"",
+        ""priority"": 4
+    },
+    {
+        ""name"": ""Monitor and Analyze Network Traffic"",
+        ""priority"": 5
+    },
+    {
+        ""name"": ""Implement Auditing and Logging Mechanisms"",
+        ""priority"": 6
+    }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T09:59:47.6886017Z,118017208200,54863800,496,53056000000,141,64890000000
+Removing/short-circuiting 'Purse' logic: removing/mutating 'cash' decrements,[],"{
+""mitigations"": [
+{
+""name"": ""Input Validation and Sanitization"",
+""priority"": 1
+},
+{
+""name"": ""Data Encryption"",
+""priority"": 2
+},
+{
+""name"": ""Secure Coding Practices"",
+""priority"": 3
+},
+{
+""name"": ""Error Handling and Logging"",
+""priority"": 4
+},
+{
+""name"": ""Authentication and Authorization"",
+""priority"": 5
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:01:14.0419187Z,84303539700,47099500,504,47685000000,87,36568000000
+Subverting Environment Variable Values,"['Protect environment variables against unauthorized read and write access. ', 'Protect the configuration files which contain environment variables against illegitimate read and write access. ', 'Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system. ', 'Apply the least privilege principles. If a process has no legitimate reason to read an environment variable do not give that privilege. ']","[
+{
+""name"": ""Protect environment variables against unauthorized read and write access."",
+""priority"": 1
+},
+{
+""name"": ""Protect the configuration files which contain environment variables against illegitimate read and write access."",
+""priority"": 2
+},
+{
+""name"": ""Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications."",
+""priority"": 3
+},
+{
+""name"": ""Apply the least privilege principles. If a process has no legitimate reason to read an environment variable do not give that privilege."",
+""priority"": 4
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:03:19.5813263Z,123490873600,53051700,591,72369000000,123,51066000000
+Manipulating Hidden Fields,[],"{
+""mitigations"": [
+{
+""name"": ""Validate User Input"",
+""priority"": 1
+},
+{
+""name"": ""Use Secure Hidden Fields Techniques"",
+""priority"": 2
+},
+{
+""name"": ""Implement Data Validation and Cleaning"",
+""priority"": 3
+},
+{
+""name"": ""Use a Web Application Firewall (WAF)"",
+""priority"": 4
+},
+{
+""name"": ""Regularly Update Software and Systems"",
+""priority"": 5
+},
+{
+""name"": ""Monitor System Logs for Anomalies"",
+""priority"": 6
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:04:54.9823407Z,93344764700,56244100,487,44399000000,115,48887000000
+Leveraging Race Conditions via Symbolic Links,"['Use safe libraries when creating temporary files. For instance the standard library function mkstemp can be used to safely create temporary files. For shell scripts, the system utility mktemp does the same thing. ', 'Access to the directories should be restricted as to prevent attackers from manipulating the files. Denying access to a file can prevent an attacker from replacing that file with a link to a sensitive file. ', 'Follow the principle of least privilege when assigning access rights to files. ', 'Ensure good compartmentalization in the system to provide protected areas that can be trusted. ']","[
+  {
+    ""name"": ""Use Safe Libraries for Temporary Files"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Restrict Directory Access"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Follow Principle of Least Privilege"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Ensure Compartmentalization in the System"",
+    ""priority"": 4
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:06:52.3556806Z,115322632800,55164500,608,76141000000,95,39121000000
+Fuzzing for application mapping,"[""Design: Construct a 'code book' for error messages. When using a code book, application error messages aren't generated in string or stack trace form, but are catalogued and replaced with a unique (often integer-based) value 'coding' for the error. Such a technique will require helpdesk and hosting personnel to use a 'code book' or similar mapping to decode application errors/logs in order to respond to them normally. "", ""Design: wrap application functionality (preferably through the underlying framework) in an output encoding scheme that obscures or cleanses error messages to prevent such attacks. Such a technique is often used in conjunction with the above 'code book' suggestion. "", 'Implementation: Obfuscate server fields of HTTP response. ', 'Implementation: Hide inner ordering of HTTP response header. ', 'Implementation: Customizing HTTP error codes such as 404 or 500. ', 'Implementation: Hide HTTP response header software information filed. ', ""Implementation: Hide cookie's software information filed. "", ""Implementation: Obfuscate database type in Database API's error message. ""]","{
+""mitigations"": [
+{
+""name"": ""Construct a 'code book' for error messages"",
+""priority"": 1
+},
+{
+""name"": ""Wrap application functionality in an output encoding scheme"",
+""priority"": 2
+},
+{
+""name"": ""Obfuscate server fields of HTTP response"",
+""priority"": 3
+},
+{
+""name"": ""Hide inner ordering of HTTP response header"",
+""priority"": 4
+},
+{
+""name"": ""Customizing HTTP error codes such as 404 or 500"",
+""priority"": 5
+},
+{
+""name"": ""Hide HTTP response header software information filed"",
+""priority"": 6
+},
+{
+""name"": ""Hide cookie's software information filed"",
+""priority"": 7
+},
+{
+""name"": ""Obfuscate database type in Database API's error message"",
+""priority"": 8
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:09:56.6596915Z,182266190400,50327300,708,104961000000,173,77239000000
+Load Value Injection,"['Do not allow the forwarding of data resulting from a faulting or assisted instruction. Some current mitigations claim to zero out the forwarded data, but this mitigation still does not suffice. ', 'Insert explicit lfence speculation barriers in software before potentially faulting or assisted loads. This halts transient execution until all previous instructions have been executed and ensures that the architecturally correct value is forwarded. ']","[
+  {
+    ""name"": ""Do not allow forwarding of data resulting from a faulting or assisted instruction"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Insert explicit lfence speculation barriers in software before potentially faulting or assisted loads"",
+    ""priority"": 2
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:11:31.8633091Z,93127994300,50021200,565,64759000000,66,28314000000
+Transaction or Event Tampering via Application API Manipulation,[],"[
+  {
+    ""name"": ""Authentication and Authorization"", 
+    ""priority"": 1
+  }, 
+  {
+    ""name"": ""Input Validation and Sanitization"", 
+    ""priority"": 2
+  }, 
+  {
+    ""name"": ""Data Encryption at Rest and in Transit"", 
+    ""priority"": 3
+  }, 
+  {
+    ""name"": ""Least Privilege Principle"", 
+    ""priority"": 4
+  }, 
+  {
+    ""name"": ""Secure Coding Practices and Secure Design Principles"", 
+    ""priority"": 5
+  }, 
+  {
+    ""name"": ""Monitoring and Logging"", 
+    ""priority"": 6
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:13:27.0553247Z,113152615300,54497400,493,48587000000,146,64508000000
+Content Spoofing Via Application API Manipulation,[],"{
+""mitigations"": [
+  {
+    ""name"": ""API Input Validation"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Secure Data Storage and Retrieval"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Least Privilege Principle"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Authentication and Authorization"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Input Sanitization"",
+    ""priority"": 5
+  },
+  {
+    ""name"": ""Regular Expression Validation"",
+    ""priority"": 6
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:15:16.8077059Z,107695048000,51221500,492,48442000000,134,59197000000
+Navigation Remapping To Propagate Malicious Content,[],"[
+    {""name"": ""Validate User Input"", ""priority"": 1},
+    {""name"": ""Use Prepared Statements"", ""priority"": 2},
+    {""name"": ""Restrict File Permissions"", ""priority"": 3},
+    {""name"": ""Implement Content Security Policy"", ""priority"": 4},
+    {""name"": ""Monitor and Analyze System Calls"", ""priority"": 5}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:16:43.864506Z,85007575800,51679000,492,48420000000,83,36534000000
+Application API Button Hijacking,[],"[
+{
+""name"": ""API Key Management"",
+""priority"": 1
+},
+{
+""name"": ""Input Validation and Sanitization"",
+""priority"": 2
+},
+{
+""name"": ""Secure Authentication Mechanisms"",
+""priority"": 3
+},
+{
+""name"": ""Regular Security Audits"",
+""priority"": 4
+},
+{
+""name"": ""Least Privilege Principle"",
+""priority"": 5
+},
+{
+""name"": ""Monitoring for Unusual Activity"",
+""priority"": 6
+},
+{
+""name"": ""Secure Communication Protocols"",
+""priority"": 7
+},
+{
+""name"": ""User Education and Awareness"",
+""priority"": 8
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:18:32.4702435Z,106560462800,68764400,488,47805000000,133,58682000000
+Dictionary-based Password Attack,"['Create a strong password policy and ensure that your system enforces this policy. ', 'Implement an intelligent password throttling mechanism. Care must be taken to assure that these mechanisms do not excessively enable account lockout attacks such as <a href=""/data/definitions/2.html"">CAPEC-2</a>. ', 'Leverage multi-factor authentication for all authentication services. ']","[
+  {
+    ""name"": ""Create a strong password policy and ensure that your system enforces this policy."",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Implement an intelligent password throttling mechanism"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Leverage multi-factor authentication for all authentication services"",
+    ""priority"": 3
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:20:22.052718Z,107542706800,51933200,564,69766000000,85,37720000000
+Rainbow Table Password Cracking,"['Use salt when computing password hashes. That is, concatenate the salt (random bits) with the original password prior to hashing it. ']","[
+  {
+    ""name"": ""Use Secure Password Hashing"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Implement Rate Limiting for Login Attempts"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Enforce Strong Password Policies"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Monitor and Log Authentication Activity"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Implement Multi-Factor Authentication (MFA)"",
+    ""priority"": 5
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:22:12.4483387Z,108340144300,55658200,517,56409000000,118,51870000000
+Password Spraying,"['Create a strong password policy and ensure that your system enforces this policy. ', 'Implement an intelligent password throttling mechanism. Care must be taken to assure that these mechanisms do not excessively enable account lockout attacks such as <a href=""/data/definitions/2.html"">CAPEC-2</a>. ', 'Leverage multi-factor authentication for all authentication services and prior to granting an entity access to the domain network. ']","[
+  {
+    ""name"": ""Create a strong password policy and ensure that your system enforces this policy."",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Implement an intelligent password throttling mechanism"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Leverage multi-factor authentication for all authentication services and prior to granting an entity access to the domain network"",
+    ""priority"": 3
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:24:09.5110902Z,115014332900,61073900,574,71886000000,96,43062000000
+Try Common or Default Usernames and Passwords,"['Delete all default account credentials that may be put in by the product vendor. ', 'Implement a password throttling mechanism. This mechanism should take into account both the IP address and the log in name of the user. ', 'Put together a strong password policy and make sure that all user created passwords comply with it. Alternatively automatically generate strong passwords for users. ', 'Passwords need to be recycled to prevent aging, that is every once in a while a new password must be chosen. ']","{
+""mitigations"": [
+{
+""name"": ""Delete all default account credentials that may be put in by the product vendor"",
+""priority"": 1
+},
+{
+""name"": ""Implement a password throttling mechanism. This mechanism should take into account both the IP address and the log in name of the user."",
+""priority"": 2
+},
+{
+""name"": ""Put together a strong password policy and make sure that all user created passwords comply with it. Alternatively automatically generate strong passwords for users."",
+""priority"": 3
+},
+{
+""name"": ""Passwords need to be recycled to prevent aging, that is every once in a while a new password must be chosen"",
+""priority"": 4
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-25T10:26:29.1727014Z,137621106500,54115600,590,74684000000,143,62879000000
+Root/Jailbreak Detection Evasion via Debugging,['Instantiate checks within the application code that ensures debuggers are not attached. '],"[
+  {
+    ""name"": ""Debugger Detection via System Properties"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Instantiation of Check within Application Code"",
+    ""priority"": 2
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:18:04.6558435Z,105302153000,6665798500,509,85485000000,49,13144000000
+Escaping a Sandbox by Calling Code in Another Language,"['Assurance: Sanitize the code of the standard libraries to make sure there is no security weaknesses in them. ', 'Design: Use obfuscation and other techniques to prevent reverse engineering the standard libraries. ', 'Assurance: Use static analysis tool to do code review and dynamic tool to do penetration test on the standard library. ', 'Configuration: Get latest updates for the computer. ']","[
+  {
+    ""name"": ""Sanitize Standard Libraries"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Obfuscate and Prevent Reverse Engineering"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Use Static Analysis Tool for Code Review"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Use Dynamic Tool for Penetration Testing"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Keep Computer Up-to-Date with Latest Updates"",
+    ""priority"": 5
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:19:21.10377Z,73656373500,41319100,572,41377000000,122,32234000000
+Detect Unpublicized Web Pages,[],"{
+""mitigations"": [
+{
+""name"": ""Web Application Firewall (WAF) Configuration"",
+""priority"": 1
+},
+{
+""name"": ""Regularly Update Software and Plug-ins"",
+""priority"": 2
+},
+{
+""name"": ""Secure HTTP (HTTPS) Protocol"",
+""priority"": 3
+},
+{
+""name"": ""Configure Search Engine Optimization (SEO) Best Practices"",
+""priority"": 4
+},
+{
+""name"": ""Monitor Web Server Logs"",
+""priority"": 5
+},
+{
+""name"": ""Keep Software and Plug-ins Up-to-Date"",
+""priority"": 6
+},
+{
+""name"": ""Implement Content Delivery Network (CDN)"",
+""priority"": 7
+},
+{
+""name"": ""Disable Directory Browsing"",
+""priority"": 8
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:20:32.5048332Z,69361394200,57511100,489,24064000000,159,45234000000
+Detect Unpublicized Web Services,[],"[
+  {
+    ""name"": ""Disable Port Scanning"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Implement Web Application Firewall"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Use HTTPS and HSTS"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Monitor Network Traffic and System Logs"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Implement Regular Security Audits and Penetration Testing"",
+    ""priority"": 5
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:21:32.9381449Z,58364527200,48907800,489,23430000000,116,34883000000
+Screen Temporary Files for Sensitive Information,[],"[
+    {
+        ""name"": ""Restrict Access to Sensitive Files"",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Implement File Permission Controls"",
+        ""priority"": 2
+    },
+    {
+        ""name"": ""Configure System Settings to Delete Temporary Files Regularly"",
+        ""priority"": 3
+    },
+    {
+        ""name"": ""Disable Script Execution in Temporary Files Directory"",
+        ""priority"": 4
+    },
+    {
+        ""name"": ""Monitor File Access and Modify Auditing Configurations"",
+        ""priority"": 5
+    }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:22:42.1103762Z,67126975700,36692900,490,30892000000,124,36196000000
+Collect Data from Clipboard,"['While copying and pasting of data with the clipboard is a legitimate and practical function, certain situations and context may require the disabling of this feature. Just as certain applications disable screenshot capability, applications that handle highly sensitive information should consider disabling copy and paste functionality. ', 'Employ a robust identification and audit/blocking via using an allowlist of applications on your system. Malware may contain the functionality associated with this attack pattern. ']","[
+    {
+        ""name"": ""Disable Copy and Paste Functionality"",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Implement Allowlist of Authorized Applications"",
+        ""priority"": 2
+    }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:23:37.4124472Z,53252341400,53192600,573,40305000000,49,12890000000
+Collect Data from Registries,"['Employ a robust and layered defensive posture in order to prevent unauthorized users on your system. ', 'Employ robust identification and audit/blocking via using an allowlist of applications on your system. Unnecessary applications, utilities, and configurations will have a presence in the system registry that can be leveraged by an adversary through this attack pattern. ']","[
+  {
+    ""name"": ""Implement robust registry permissions"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Monitor system registry for unauthorized changes"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Limit user access to registry modifications"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Regularly review and update allowlist of applications"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Implement a robust logging and auditing system"",
+    ""priority"": 5
+  },
+  {
+    ""name"": ""Use an intrusion detection and prevention system (IDPS)"",
+    ""priority"": 6
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:24:59.2175724Z,79755323900,50097100,557,38147000000,147,41550000000
+Collect Data from Screen Capture,"['Identify potentially malicious software that may have functionality to acquire screen captures, and audit and/or block it by using allowlist tools. ', 'While screen capture is a legitimate and practical function, certain situations and context may require the disabling of this feature. ']","[
+  {
+    ""name"": ""Block Screen Capture Functionality"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Identify Malicious Software and Block"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Implement Allowlist Tools for Authorized Users"",
+    ""priority"": 3
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:25:52.6588977Z,51401329400,24031800,540,32669000000,73,18707000000
+Directory Indexing,"['1. Using blank index.html: putting blank index.html simply prevent directory listings from displaying to site visitors. ', '2. Preventing with .htaccess in Apache web server: In .htaccess, write ""Options-indexes"". ', '3. Suppressing error messages: using error 403 ""Forbidden"" message exactly like error 404 ""Not Found"" message. ']","[
+  {
+    ""name"": ""Using blank index.html"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Preventing with .htaccess in Apache web server"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Suppressing error messages"",
+    ""priority"": 3
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:26:54.767117Z,60076626500,55829500,563,39490000000,72,20527000000
+Fuzzing for garnering other adjacent user/sensitive data,[],"{
+""mitigations"": [
+{
+""name"": ""Input Validation"",
+""priority"": 1
+},
+{
+""name"": ""Data Encryption at Rest"",
+""priority"": 2
+},
+{
+""name"": ""Least Privilege Principle"",
+""priority"": 3
+},
+{
+""name"": ""Regular Security Audits and Penetration Testing"",
+""priority"": 4
+},
+{
+""name"": ""Secure Coding Practices and Secure by Design"",
+""priority"": 5
+},
+{
+""name"": ""Access Controls and Authentication"",
+""priority"": 6
+},
+{
+""name"": ""Monitoring and Logging for Detection"",
+""priority"": 7
+},
+{
+""name"": ""User Education and Awareness"",
+""priority"": 8
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:28:08.2878611Z,71488843600,48336000,495,29147000000,143,42291000000
+Cross-Domain Search Timing,"[""Design: The victim's site could protect all potentially sensitive functionality (e.g. search functions) with cross site request forgery (CSRF) protection and not perform any work on behalf of forged requests "", ""Design: The browser's security model could be fixed to not leak timing information for cross domain requests ""]","[
+  {
+    ""name"": ""CSRF Protection"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Disable Timing Information for Cross-Domain Requests"",
+    ""priority"": 2
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:29:03.9693168Z,53639390800,22596600,551,39774000000,48,13841000000
+WSDL Scanning,"['It is important to protect WSDL file or provide limited access to it. ', 'Review the functions exposed by the WSDL interface (especially if you have used a tool to generate it). Make sure that none of them is vulnerable to injection. ', 'Ensure the WSDL does not expose functions and APIs that were not intended to be exposed. ', 'Pay attention to the function naming convention (within the WSDL interface). Easy to guess function name may be an entry point for attack. ', 'Validate the received messages against the WSDL Schema. Incomplete solution. ']","{
+""mitigations"": [
+  {
+    ""name"": ""Limit access to WSDL file"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Review exposed functions and prevent injection vulnerabilities"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Ensure only intended APIs are exposed in the WSDL"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Use a secure naming convention for WSDL functions"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Validate received messages against the WSDL Schema"",
+    ""priority"": 5
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:30:28.9725528Z,82956078700,30786100,603,45218000000,134,37703000000
+Probe iOS Screenshots,"[""To mitigate this type of an attack, an application that may display sensitive information should clear the screen contents before a screenshot is taken. This can be accomplished by setting the key window's hidden property to YES. This code to hide the contents should be placed in both the applicationWillResignActive() and applicationDidEnterBackground() methods. ""]","[
+    {
+        ""name"": ""Screen Content Hiding"",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Resign Active Method Implementation"",
+        ""priority"": 2
+    },
+    {
+        ""name"": ""Enter Background Method Implementation"",
+        ""priority"": 3
+    }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:31:24.3347731Z,53313131000,39608100,554,35671000000,67,17590000000
+Incomplete Data Deletion in a Multi-Tenant Environment,"['Cloud providers should completely delete data to render it irrecoverable and inaccessible from any layer and component of infrastructure resources. ', 'Deletion of data should be completed promptly when requested. ']","[
+  {
+    ""name"": ""Prompt Data Deletion"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Complete Data Deletion"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Regular Data Auditing and Verification"",
+    ""priority"": 3
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:32:23.367906Z,56994605500,38254600,531,37306000000,68,19646000000
+Probe Audio and Video Peripherals,"['Prevent unknown code from executing on a system through the use of an allowlist policy. ', 'Patch installed applications as soon as new updates become available. ']","[
+{
+""name"": ""Block Untrusted Audio and Video Peripherals"", 
+""priority"": 1
+},
+{
+""name"": ""Configure Audio and Video Peripherals to Only Allow Known Devices"", 
+""priority"": 2
+},
+{
+""name"": ""Implement a Host-Based Intrusion Detection System (HIDS) for Real-Time Monitoring"", 
+""priority"": 3
+},
+{
+""name"": ""Apply the Principle of Least Privilege to Audio and Video Peripherals"", 
+""priority"": 4
+},
+{
+""name"": ""Prevent unknown code from executing on a system through the use of an allowlist policy."", 
+""priority"": 5
+},
+{
+""name"": ""Patch installed applications as soon as new updates become available."", 
+""priority"": 6
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:33:46.1659794Z,80758310200,32848600,522,33444000000,156,47276000000
+Probe System Files,"['Verify that files have proper access controls set, and reduce the storage of sensitive information to only what is necessary. ']","[
+{
+""name"": ""Remove unnecessary files"",
+""priority"": 1
+},
+{
+""name"": ""Set proper file permissions"",
+""priority"": 2
+},
+{
+""name"": ""Limit access to sensitive information"",
+""priority"": 3
+},
+{
+""name"": ""Use secure storage solutions"",
+""priority"": 4
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:34:39.4118882Z,51199982100,34363200,510,30291000000,67,20872000000
+Capture Credentials via Keylogger,['Strong physical security can help reduce the ability of an adversary to install a keylogger. '],"{
+""mitigations"": [
+{
+""name"": ""Implement Secure Authentication Protocols"",
+""priority"": 1
+},
+{
+""name"": ""Use Encryption for Data at Rest and in Transit"",
+""priority"": 2
+},
+{
+""name"": ""Enable Two-Factor Authentication (2FA)"",
+""priority"": 3
+},
+{
+""name"": ""Monitor and Audit Authentication Events"",
+""priority"": 4
+},
+{
+""name"": ""Implement Physical Security Measures to Prevent Keylogger Installation"",
+""priority"": 5
+},
+{
+""name"": ""Use Secure Boot and Verified Boot Processes"",
+""priority"": 6
+},
+{
+""name"": ""Keep Software Up-to-Date with the Latest Security Patches"",
+""priority"": 7
+},
+{
+""name"": ""Monitor Network Traffic for Suspicious Activity"",
+""priority"": 8
+},
+{
+""name"": ""Implement Role-Based Access Control (RBAC)"",
+""priority"": 9
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:36:02.734927Z,81291735000,24731100,507,28120000000,187,53145000000
+Sniffing Network Traffic,"['Obfuscate network traffic through encryption to prevent its readability by network sniffers. ', 'Employ appropriate levels of segmentation to your network in accordance with best practices. ']","[
+  {
+    ""name"": ""Encryption of Network Traffic"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Network Segmentation"",
+    ""priority"": 2
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:36:52.1215065Z,47335263500,33815500,522,34494000000,44,12805000000
+Utilizing REST's Trust in the System Resource to Obtain Sensitive Data,"['Implementation: Implement message level security such as HMAC in the HTTP communication ', 'Design: Utilize defense in depth, do not rely on a single security mechanism like SSL ', 'Design: Enforce principle of least privilege ']","[
+  {
+    ""name"": ""Implement Message Level Security Such as HMAC"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Defense in Depth: Utilize Multiple Security Mechanisms"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Enforce Principle of Least Privilege for Sensitive Data"",
+    ""priority"": 3
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:37:54.5323769Z,60371563200,20874100,542,39011000000,82,21338000000
+Sniff Application Code,"['Design: Encrypt all communication between the client and server. ', 'Implementation: Use SSL, SSH, SCP. ', 'Operation: Use ""ifconfig/ipconfig"" or other tools to detect the sniffer installed in the network. ']","[
+  {
+    ""name"": ""Encrypt all communication between the client and server"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Use SSL, SSH, SCP"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Detect sniffer installed in the network using tools like ifconfig/ipconfig"",
+    ""priority"": 3
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:38:51.6007566Z,55031868400,60146500,535,32260000000,82,22708000000
+Android Activity Hijack,"[""To mitigate this type of an attack, explicit intents should be used whenever sensitive data is being sent. An 'explicit intent' is delivered to a specific application as declared within the intent, whereas an 'implicit intent' is directed to an application as defined by the Android operating system. If an implicit intent must be used, then it should be assumed that the intent will be received by an unknown application and any response should be treated accordingly (i.e., with appropriate security controls). "", 'Never use implicit intents for inter-application communication. ']","[
+{
+""name"": ""Use Explicit Intents"",
+""priority"": 1
+},
+{
+""name"": ""Assume Unknown Application Response"",
+""priority"": 2
+},
+{
+""name"": ""Implement Security Controls for Implicit Intent Responses"",
+""priority"": 3
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:39:57.3732571Z,63714389100,41997700,595,46967000000,55,16692000000
+Probe Audio and Video Peripherals,"['Prevent unknown code from executing on a system through the use of an allowlist policy. ', 'Patch installed applications as soon as new updates become available. ']","[
+  {
+    ""name"": ""Disable unused peripherals"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Implement access control for peripherals"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Use a whitelist of allowed USB devices"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Prevent unknown code from executing on a system through the use of an allowlist policy"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Patch installed applications as soon as new updates become available"",
+    ""priority"": 5
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:41:15.0706437Z,75654369300,44909600,522,35878000000,130,39729000000
+Restful Privilege Elevation,"['Design: Enforce principle of least privilege ', 'Implementation: Ensure that HTTP Get methods only retrieve state and do not alter state on the server side ', 'Implementation: Ensure that HTTP methods have proper ACLs based on what the functionality they expose ']","[
+  {
+    ""name"": ""Valid User Authentication"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Design: Enforce principle of least privilege"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Implementation: Ensure that HTTP Get methods only retrieve state and do not alter state on the server side"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Implementation: Ensure that HTTP methods have proper ACLs based on what the functionality they expose"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Limit User privileges to necessary resources and actions"",
+    ""priority"": 5
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:42:32.5481487Z,75443341500,36728800,539,36137000000,143,39267000000
+Create files with the same name as files protected with a higher classification,[],"[
+  {
+    ""name"": ""File System Auditing"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Access Control Lists (ACLs) Configuration"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Intrusion Detection and Prevention Systems (IDPS) Integration"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""File Naming Convention Enforcement"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Least Privilege Principle Adoption"",
+    ""priority"": 5
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:43:42.1945907Z,67573589700,34644500,496,31994000000,121,35543000000
+Force Use of Corrupted Files,[],"[
+  {
+    ""name"": ""Disable File Execution"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Implement Validity Checking for Files"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Use File Hashing Algorithms"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Restrict Access to Critical Directories"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Monitor System Logs for Unusual Activity"",
+    ""priority"": 5
+  },
+  {
+    ""name"": ""Implement Digital Signatures for Files"",
+    ""priority"": 6
+  },
+  {
+    ""name"": ""Restrict File Systems to Read-Only"",
+    ""priority"": 7
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:44:58.19551Z,73981582700,58463300,489,27777000000,164,46140000000
+Modify Shared File,['Disallow shared content. Protect shared folders by minimizing users that have write access. Use utilities that mitigate exploitation like the Microsoft Enhanced Mitigation Experience Toolkit (EMET) to prevent exploits from being run. '],"[
+    {
+        ""name"": ""Disable write access"",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Use Microsoft Enhanced Mitigation Experience Toolkit (EMET)"",
+        ""priority"": 2
+    },
+    {
+        ""name"": ""Minimize users with write access"",
+        ""priority"": 3
+    }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:45:58.6714656Z,58432663800,47354400,527,38082000000,73,20301000000
+Add Malicious File to Shared Webroot,['Ensure proper permissions on directories that are accessible through a web server. Disallow remote access to the web root. Disable execution on directories within the web root. Ensure that permissions of the web server process are only what is required by not using built-in accounts and instead create specific accounts to limit unnecessary access or permissions overlap across multiple systems. '],"[
+    {""name"": ""Configure Web Server to Only Serve Files from Specific Directories"", ""priority"": 1},
+    {""name"": ""Disable Directory Listings and Indexing"", ""priority"": 2},
+    {""name"": ""Implement Least Privilege Principle for Web Server Process"", ""priority"": 3},
+    {""name"": ""Use Account Lockout Policies to Limit Unnecessary Access"", ""priority"": 4},
+    {""name"": ""Regularly Review and Update File System Permissions"", ""priority"": 5}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:47:03.7217777Z,63011119700,44210700,559,35219000000,107,27744000000
+Replace Binaries,['Insure that binaries commonly used by the system have the correct file permissions. Set operating system policies that restrict privilege elevation of non-Administrators. Use auditing tools to observe changes to system services. '],"[
+  {
+    ""name"": ""Correct File Permissions"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Restrict Privilege Elevation"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Monitor System Services"",
+    ""priority"": 3
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:47:52.906532Z,47126929600,25634800,527,30272000000,66,16825000000
+Upload a Web Shell to a Web Server,"['Make sure your web server is up-to-date with all patches to protect against known vulnerabilities. ', 'Ensure that the file permissions in directories on the web server from which files can be execute is set to the ""least privilege"" settings, and that those directories contents is controlled by an allowlist. ']","[
+  {
+    ""name"": ""Keep Web Server Up-to-Date"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Least Privilege File Permissions"",
+    ""priority"": 2
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:48:40.753797Z,45796655600,53308600,552,33386000000,49,12355000000
+Restful Privilege Elevation,"['Design: Enforce principle of least privilege ', 'Implementation: Ensure that HTTP Get methods only retrieve state and do not alter state on the server side ', 'Implementation: Ensure that HTTP methods have proper ACLs based on what the functionality they expose ']","[
+  {
+    ""name"": ""Remove Unnecessary Privileges"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Design: Enforce principle of least privilege"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Implementation: Ensure that HTTP Get methods only retrieve state and do not alter state on the server side"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Implementation: Ensure that HTTP methods have proper ACLs based on what the functionality they expose"",
+    ""priority"": 4
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:49:44.8938973Z,62098191900,32446000,539,31384000000,120,30678000000
+Exploiting Incorrect Chaining or Granularity of Hardware Debug Components,"['Implement: Ensure that debug components are properly chained, and their granularity is maintained at different authorization levels ', 'Perform Post-silicon validation tests at various authorization levels to ensure that debug components are only accessible to authorized users ']","[
+  {
+    ""name"": ""Ensure Proper Chaining of Hardware Debug Components"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Maintain Granularity at Different Authorization Levels"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Perform Post-silicon Validation Tests at Various Authorization Levels"",
+    ""priority"": 3
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:50:41.6477469Z,54710443200,33528700,541,33630000000,81,21035000000
+Serialized Data External Linking,['Configure the serialized data processor to only retrieve external entities from trusted sources. '],"[
+  {
+    ""name"": ""Configure the serialized data processor to only retrieve external entities from trusted sources"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Validate and sanitize user-provided input before deserializing it"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Implement rate limiting on requests to the serialized data processor"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Monitor system logs for suspicious activity related to serialized data processing"",
+    ""priority"": 4
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:51:42.7561672Z,59066641900,50410200,504,28302000000,117,30712000000
+Buffer Overflow via Environment Variables,"['Do not expose environment variable to the user. ', 'Do not use untrusted data in your environment variables. ', 'Use a language or compiler that performs automatic bounds checking ', 'There are tools such as Sharefuzz [<a href=""#REF-2"">REF-2</a>] which is an environment variable fuzzer for Unix that support loading a shared library. You can use Sharefuzz to determine if you are exposing an environment variable vulnerable to buffer overflow. ']","[
+    {
+        ""name"": ""Do not expose environment variable to the user"",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Do not use untrusted data in your environment variables"",
+        ""priority"": 2
+    },
+    {
+        ""name"": ""Use a language or compiler that performs automatic bounds checking"",
+        ""priority"": 3
+    },
+    {
+        ""name"": ""Utilize tools such as Sharefuzz to determine if you are exposing an environment variable vulnerable to buffer overflow"",
+        ""priority"": 4
+    }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:52:54.2209362Z,69431530300,50666900,584,38286000000,120,31093000000
+Client-side Injection-induced Buffer Overflow,"['The client software should not install untrusted code from a non-authenticated server. ', 'The client software should have the latest patches and should be audited for vulnerabilities before being used to communicate with potentially hostile servers. ', 'Perform input validation for length of buffer inputs. ', 'Use a language or compiler that performs automatic bounds checking. ', 'Use an abstraction library to abstract away risky APIs. Not a complete solution. ', 'Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution. ', 'Ensure all buffer uses are consistently bounds-checked. ', 'Use OS-level preventative functionality. Not a complete solution. ']","{
+""mitigations"": [
+{
+""name"": ""Client Software Updates"",
+""priority"": 1
+},
+{
+""name"": ""Input Validation for Buffer Length"",
+""priority"": 2
+},
+{
+""name"": ""Automatic Bounds Checking"",
+""priority"": 3
+},
+{
+""name"": ""Abstraction Library"",
+""priority"": 4
+},
+{
+""name"": ""Compiler-based Canary Mechanisms"",
+""priority"": 5
+},
+{
+""name"": ""Consistent Buffer Bound Checks"",
+""priority"": 6
+},
+{
+""name"": ""OS-level Preventative Functionality"",
+""priority"": 7
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:54:20.7041689Z,84438147800,49653600,636,52321000000,123,32065000000
+Filter Failure through Buffer Overflow,"['Make sure that ANY failure occurring in the filtering or input validation routine is properly handled and that offending input is NOT allowed to go through. Basically make sure that the vault is closed when failure occurs. ', 'Pre-design: Use a language or compiler that performs automatic bounds checking. ', 'Pre-design through Build: Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution. ', 'Operational: Use OS-level preventative functionality. Not a complete solution. ', 'Design: Use an abstraction library to abstract away risky APIs. Not a complete solution. ']","[
+    {
+        ""name"": ""Properly Handle Failure"",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Automatic Bounds Checking"",
+        ""priority"": 2
+    },
+    {
+        ""name"": ""Compiler-based Canary Mechanisms"",
+        ""priority"": 3
+    },
+    {
+        ""name"": ""OS-level Preventative Functionality"",
+        ""priority"": 4
+    },
+    {
+        ""name"": ""Abstraction Library"",
+        ""priority"": 5
+    }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:55:35.6924668Z,72945371000,50163300,622,44613000000,110,28280000000
+SOAP Array Overflow,"['If the server either verifies the correctness of the stated array size or if the server stops processing an array once the stated number of elements have been read, regardless of the actual array size, then this attack will fail. The former detects the malformed SOAP message while the latter ensures that the server does not attempt to load more data than was allocated for. ']","[
+    {""name"": ""Verify SOAP message size"", ""priority"": 1},
+    {""name"": ""Implement array bounds checking"", ""priority"": 2},
+    {""name"": ""Enforce maximum allowed array size"", ""priority"": 3},
+    {""name"": ""Validate XML namespace and schema"", ""priority"": 4}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:56:30.2786144Z,52539777200,50077000,557,34284000000,70,18204000000
+MIME Conversion,"['Stay up to date with third party vendor patches ', '<p>Disable the 7 to 8 bit conversion. This can be done by removing the F=9 flag from all Mailer specifications in the sendmail.cf file. </p><p>For example, a sendmail.cf file with these changes applied should look similar to (depending on your system and configuration): </p><div style=""margin-left:1em;"" class=""informative"">Mlocal, P=/usr/libexec/mail.local, F=lsDFMAw5:/|@qrmn, S=10/30, R=20/40, <div style=""margin-left:1em;"">T=DNS/RFC822/X-Unix, <br>A=mail -d $u </div><br>Mprog, P=/bin/sh, F=lsDFMoqeu, S=10/30, R=20/40, <div style=""margin-left:1em;"">D=$z:/, <br>T=X-Unix, <br>A=sh -c $u </div></div><p>This can be achieved for the ""Mlocal"" and ""Mprog"" Mailers by modifying the "".mc"" file to include the following lines: </p><div style=""margin-left:1em;"" class=""informative"">define(`LOCAL_MAILER_FLAGS\', <div style=""margin-left:1em;"">ifdef(`LOCAL_MAILER_FLAGS\', <div style=""margin-left:1em;"">`translit(LOCAL_MAILER_FLAGS, `9\')\', <br>`rmn\')) </div></div><br>define(`LOCAL_SHELL_FLAGS\', <div style=""margin-left:1em;"">ifdef(`LOCAL_SHELL_FLAGS\', <div style=""margin-left:1em;"">`translit(LOCAL_SHELL_FLAGS, `9\')\', <br>`eu\')) </div></div></div><p>and then rebuilding the sendmail.cf file using m4(1). </p><p>From ""Exploiting Software"", please see reference below. </p>', 'Use the sendmail restricted shell program (smrsh) ', 'Use mail.local ']","{
+""mitigations"": [
+{
+""name"": ""Stay up to date with third party vendor patches"",
+""priority"": 1
+},
+{
+""name"": ""Disable the 7 to 8 bit conversion"",
+""priority"": 2
+},
+{
+""name"": ""Use the sendmail restricted shell program (smrsh)"",
+""priority"": 3
+},
+{
+""name"": ""Use mail.local"",
+""priority"": 4
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:58:30.7902112Z,118472130600,44269200,939,95545000000,89,22871000000
+Overflow Binary Resource File,"['Perform appropriate bounds checking on all buffers. ', 'Design: Enforce principle of least privilege ', 'Design: Static code analysis ', 'Implementation: Execute program in less trusted process space environment, do not allow lower integrity processes to write to higher integrity processes ', 'Implementation: Keep software patched to ensure that known vulnerabilities are not available for adversaries to target on host. ']","[
+{
+""name"": ""Overflow Binary Resource File Mitigation"",
+""priority"": 1
+},
+{
+""name"": ""Bounds Checking on Buffers"",
+""priority"": 2
+},
+{
+""name"": ""Least Privilege Principle Enforcement"",
+""priority"": 3
+},
+{
+""name"": ""Static Code Analysis for Vulnerability Detection"",
+""priority"": 4
+},
+{
+""name"": ""Execution in Less Trusted Process Space Environment"",
+""priority"": 5
+},
+{
+""name"": ""Preventing Higher Integrity Processes from Writing to Lower Integrity Processes"",
+""priority"": 6
+},
+{
+""name"": ""Software Patching to Address Known Vulnerabilities"",
+""priority"": 7
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T11:59:42.1394742Z,69294336000,35806900,561,34262000000,136,34985000000
+Buffer Overflow via Symbolic Links,"['Pay attention to the fact that the resource you read from can be a replaced by a Symbolic link. You can do a Symlink check before reading the file and decide that this is not a legitimate way of accessing the resource. ', 'Because Symlink can be modified by an adversary, make sure that the ones you read are located in protected directories. ', 'Pay attention to the resource pointed to by your symlink links (See attack pattern named ""Forced Symlink race""), they can be replaced by malicious resources. ', 'Always check the size of the input data before copying to a buffer. ', 'Use a language or compiler that performs automatic bounds checking. ', 'Use an abstraction library to abstract away risky APIs. Not a complete solution. ', 'Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution. ', 'Use OS-level preventative functionality. Not a complete solution. ']","{
+""mitigations"": [
+{
+""name"": ""Symlink check before reading file"",
+""priority"": 1
+},
+{
+""name"": ""Protected directories for symlinks"",
+""priority"": 2
+},
+{
+""name"": ""Check resource pointed to by symlink links"",
+""priority"": 3
+},
+{
+""name"": ""Check size of input data before copying to buffer"",
+""priority"": 4
+},
+{
+""name"": ""Automatic bounds checking using compiler or language"",
+""priority"": 5
+},
+{
+""name"": ""Abstraction library for risky APIs"",
+""priority"": 6
+},
+{
+""name"": ""Compiler-based canary mechanisms (StackGuard, ProPolice, /GS flag)"",
+""priority"": 7
+},
+{
+""name"": ""OS-level preventative functionality"",
+""priority"": 8
+}
+]
+}",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:01:23.0334157Z,98858866500,30949100,691,56073000000,166,42753000000
+Overflow Variables and Tags,"['Use a language or compiler that performs automatic bounds checking. ', 'Use an abstraction library to abstract away risky APIs. Not a complete solution. ', 'Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution. ', 'Use OS-level preventative functionality. Not a complete solution. ', 'Do not trust input data from user. Validate all user input. ']","[
+    {
+        ""name"": ""Use a language or compiler that performs automatic bounds checking."",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Use an abstraction library to abstract away risky APIs."",
+        ""priority"": 2
+    },
+    {
+        ""name"": ""Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag."",
+        ""priority"": 3
+    },
+    {
+        ""name"": ""Use OS-level preventative functionality."",
+        ""priority"": 4
+    },
+    {
+        ""name"": ""Do not trust input data from user. Validate all user input."",
+        ""priority"": 5
+    }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:02:39.7953467Z,74711962700,48744300,582,37595000000,144,37066000000
+Buffer Overflow via Parameter Expansion,['Ensure that when parameter expansion happens in the code that the assumptions used to determine the resulting size of the parameter are accurate and that the new size of the parameter is visible to the whole system '],"[
+    {
+        ""name"": ""Parameter Size Validation"",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Buffer Overflow Protection"",
+        ""priority"": 2
+    },
+    {
+        ""name"": ""Secure Coding Practices"",
+        ""priority"": 3
+    },
+    {
+        ""name"": ""Regular Security Audits"",
+        ""priority"": 4
+    }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:03:31.8003973Z,49970858000,49557400,527,28988000000,84,20929000000
+String Format Overflow in syslog(),"['<p>The code should be reviewed for misuse of the Syslog function call. Manual or automated code review can be used. The reviewer needs to ensure that all format string functions are passed a static string which cannot be controlled by the user and that the proper number of arguments are always sent to that function as well. If at all possible, do not use the %n operator in format strings. The following code shows a correct usage of Syslog(): </p><div style=""margin-left:1em;"" class=""good"">syslog(LOG_ERR, ""%s"", cmdBuf); </div><p>The following code shows a vulnerable usage of Syslog(): </p><div style=""margin-left:1em;"" class=""bad"">syslog(LOG_ERR, cmdBuf); <div><i>// the buffer cmdBuff is taking user supplied data. </i></div></div>']","[
+  {
+    ""name"": ""Code Review"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Manual or Automated Code Review for Static Format Strings"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Proper Number of Arguments in Format Strings"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Avoid Using %n Operator in Format Strings"",
+    ""priority"": 4
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:04:49.916199Z,76084024000,50607100,667,51249000000,98,24769000000
+Buffer Overflow in an API Call,"['Use a language or compiler that performs automatic bounds checking. ', 'Use secure functions not vulnerable to buffer overflow. ', 'If you have to use dangerous functions, make sure that you do boundary checking. ', 'Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution. ', 'Use OS-level preventative functionality. Not a complete solution. ']","[
+    {
+        ""name"": ""API Input Validation"",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Use a language or compiler that performs automatic bounds checking."",
+        ""priority"": 2
+    },
+    {
+        ""name"": ""Use secure functions not vulnerable to buffer overflow"",
+        ""priority"": 3
+    },
+    {
+        ""name"": ""Boundary Checking and Error Handling"",
+        ""priority"": 4
+    },
+    {
+        ""name"": ""Compiler-based canary mechanisms (StackGuard, ProPolice, /GS flag)"",
+        ""priority"": 5
+    },
+    {
+        ""name"": ""OS-level preventative functionality"",
+        ""priority"": 6
+    }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:06:07.9681971Z,76015118100,15458700,581,37523000000,150,38467000000
+Buffer Overflow in Local Command-Line Utilities,"[""Carefully review the service's implementation before making it available to user. For instance you can use manual or automated code review to uncover vulnerabilities such as buffer overflow. "", 'Use a language or compiler that performs automatic bounds checking. ', 'Use an abstraction library to abstract away risky APIs. Not a complete solution. ', 'Compiler-based canary mechanisms such as StackGuard, ProPolice and the Microsoft Visual Studio /GS flag. Unless this provides automatic bounds checking, it is not a complete solution. ', 'Operational: Use OS-level preventative functionality. Not a complete solution. ', 'Apply the latest patches to your user exposed services. This may not be a complete solution, especially against a zero day attack. ', 'Do not unnecessarily expose services. ']","{
+""mitigations"": [
+{
+""name"": ""Review service implementation"",
+""priority"": 1
+},
+{
+""name"": ""Automatic bounds checking (compiler or language)"",
+""priority"": 2
+},
+{
+""name"": ""Abstraction library for risky APIs"",
+""priority"": 3
+},
+{
+""name"": ""Canary mechanisms (StackGuard, ProPolice, /GS flag)"",
+""priority"": 4
+},
+{
+""name"": ""OS-level preventative functionality"",
+""priority"": 5
+},
+{
+""name"": ""Latest patches for user-exposed services"",
+""priority"": 6
+},
+{
+""name"": ""Service exposure minimization"",
+""priority"": 7
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:07:40.5812488Z,90566566100,22489600,642,54989000000,137,35540000000
+XML Ping of the Death,"['Design: Build throttling mechanism into the resource allocation. Provide for a timeout mechanism for allocated resources whose transaction does not complete within a specified interval. ', 'Implementation: Provide for network flow control and traffic shaping to control access to the resources. ']","[
+  {
+    ""name"": ""XML Ping of the Death Detection"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Resource Allocation Throttling"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Transaction Timeout Mechanism"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Network Flow Control"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Traffic Shaping for Resource Access Control"",
+    ""priority"": 5
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:08:41.9762465Z,59353334900,51380800,538,30819000000,113,28481000000
+Exponential Data Expansion,"['Design: Use libraries and templates that minimize unfiltered input. Use methods that limit entity expansion and throw exceptions on attempted entity expansion. ', 'Implementation: For XML based data - disable altogether the use of inline DTD schemas when parsing XML objects. If a DTD must be used, normalize, filter and use an allowlist and parse with methods and routines that will detect entity expansion from untrusted sources. ']","[
+  {
+    ""name"": ""Use libraries and templates that minimize unfiltered input"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Limit entity expansion and throw exceptions on attempted entity expansion"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Disable inline DTD schemas when parsing XML objects"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Normalize, filter and use an allowlist for untrusted sources"",
+    ""priority"": 4
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:09:48.3694694Z,64353167300,43323000,570,36245000000,111,28062000000
+Quadratic Data Expansion,"['Design: Use libraries and templates that minimize unfiltered input. Use methods that limit entity expansion and throw exceptions on attempted entity expansion. ', 'Implementation: For XML based data - disable altogether the use of inline DTD schemas when parsing XML objects. If a DTD must be used, normalize, filter and use an allowlist and parse with methods and routines that will detect entity expansion from untrusted sources. ']","{
+""mitigations"": [
+{
+""name"": ""Quadratic Data Expansion Mitigation"",
+""priority"": 1
+},
+{
+""name"": ""Use Libraries and Templates that Minimize Unfiltered Input"",
+""priority"": 2
+},
+{
+""name"": ""Limit Entity Expansion"",
+""priority"": 3
+},
+{
+""name"": ""Throw Exceptions on Attempted Entity Expansion"",
+""priority"": 4
+},
+{
+""name"": ""Disable Inline DTD Schemas when Parsing XML Objects"",
+""priority"": 5
+},
+{
+""name"": ""Normalize, Filter and Use Allowlist for DTD-based Data"",
+""priority"": 6
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:11:04.0845813Z,73668663100,88212300,570,40428000000,129,33150000000
+Data Serialization External Entities Blowup,"['This attack may be mitigated by tweaking the XML parser to not resolve external entities. If external entities are needed, then implement a custom XmlResolver that has a request timeout, data retrieval limit, and restrict resources it can retrieve locally. ', 'This attack may be mitigated by tweaking the serialized data parser to not resolve external entities. If external entities are needed, then implement a custom resolver that has a request timeout, data retrieval limit, and restrict resources it can retrieve locally. ']","[
+  {
+    ""name"": ""Tweak XML Parser"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Custom XmlResolver"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Tweak Serialized Data Parser"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Custom Resolver with Request Timeout and Limit"",
+    ""priority"": 4
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:12:12.5386155Z,66414015000,46401000,587,43383000000,90,22982000000
+Serialized Data Parameter Blowup,"['This attack may be mitigated completely by using a parser that is not using a vulnerable container. ', 'Mitigation may limit the number of configuration parameters per dataset. ']","{
+""mitigations"": [
+{
+""name"": ""Parser Update"",
+""priority"": 1
+},
+{
+""name"": ""Parameter Limitation"",
+""priority"": 2
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:12:56.131272Z,41547328400,31853900,523,31942000000,38,9571000000
+Using Meta-characters in E-mail Headers to Inject Malicious Payloads,"['Design: Perform validation on email header data ', 'Implementation: Implement email filtering solutions on mail server or on MTA, relay server. ', 'Implementation: Mail servers that perform strict validation may catch these attacks, because metacharacters are not allowed in many header variables such as dns names ']","[
+    {
+        ""name"": ""Strict Validation of Email Header Data"",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Implement Email Filtering Solutions on Mail Server or MTA, Relay Server"",
+        ""priority"": 2
+    },
+    {
+        ""name"": ""Disallow Metacharacters in DNS Names and Other Relevant Email Header Variables"",
+        ""priority"": 3
+    }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:13:53.6367563Z,55473174600,50418400,557,33730000000,87,21690000000
+String Format Overflow in syslog(),"['<p>The code should be reviewed for misuse of the Syslog function call. Manual or automated code review can be used. The reviewer needs to ensure that all format string functions are passed a static string which cannot be controlled by the user and that the proper number of arguments are always sent to that function as well. If at all possible, do not use the %n operator in format strings. The following code shows a correct usage of Syslog(): </p><div style=""margin-left:1em;"" class=""good"">syslog(LOG_ERR, ""%s"", cmdBuf); </div><p>The following code shows a vulnerable usage of Syslog(): </p><div style=""margin-left:1em;"" class=""bad"">syslog(LOG_ERR, cmdBuf); <div><i>// the buffer cmdBuff is taking user supplied data. </i></div></div>']","{
+""mitigations"": [
+{
+""name"": ""Manual Code Review"",
+""priority"": 1
+},
+{
+""name"": ""Automated Code Review"",
+""priority"": 2
+},
+{
+""name"": ""Static String Usage"",
+""priority"": 3
+},
+{
+""name"": ""Proper Argument Counting"",
+""priority"": 4
+},
+{
+""name"": ""%n Operator Avoidance"",
+""priority"": 5
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:15:17.1278136Z,81445057100,52496000,667,58858000000,88,22532000000
+HTTP Parameter Pollution (HPP),"['Configuration: If using a Web Application Firewall (WAF), filters should be carefully configured to detect abnormal HTTP requests ', 'Design: Perform URL encoding ', 'Implementation: Use strict regular expressions in URL rewriting ', 'Implementation: Beware of multiple occurrences of a parameter in a Query String ']","[
+  {
+    ""name"": ""Validate User Input"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Use a Web Application Firewall (WAF) and carefully configure filters to detect abnormal HTTP requests"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Perform URL encoding"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Use strict regular expressions in URL rewriting"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Beware of multiple occurrences of a parameter in a Query String"",
+    ""priority"": 5
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:16:28.9053504Z,69727198200,48150500,547,36239000000,131,33437000000
+Flash Parameter Injection,"[""User input must be sanitized according to context before reflected back to the user. The JavaScript function 'encodeURI' is not always sufficient for sanitizing input intended for global Flash parameters. Extreme caution should be taken when saving user input in Flash cookies. In such cases the Flash file itself will need to be fixed and recompiled, changing the name of the local shared objects (Flash cookies). ""]","[
+  {
+    ""name"": ""Sanitize User Input"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Use encodeURI cautiously"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Avoid using Flash cookies"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Recompile and rename Flash files"",
+    ""priority"": 4
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:17:28.6102298Z,57663049300,59297900,565,35139000000,89,22462000000
+Cross-Site Flashing,"['Implementation: Only allow known URL to be included as remote flash movies in a flash application ', 'Configuration: Properly configure the crossdomain.xml file to only include the known domains that should host remote flash movies. ']","{
+""mitigations"": [
+{
+""name"": ""Only allow known URL to be included as remote flash movies"",
+""priority"": 1
+},
+{
+""name"": ""Properly configure crossdomain.xml file for remote flash movies"",
+""priority"": 2
+}
+]
+}",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:18:15.0615144Z,44412251800,39542400,532,30268000000,57,14101000000
+Checksum Spoofing,[],"[
+  {
+    ""name"": ""Validate Checksum Algorithms"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Monitor Network Traffic for Malicious Activity"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Implement Authentication and Authorization Controls"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Use Secure Hash Functions"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Regularly Update and Patch Systems"",
+    ""priority"": 5
+  },
+  {
+    ""name"": ""Implement Input Validation and Sanitization"",
+    ""priority"": 6
+  },
+  {
+    ""name"": ""Use Encryption for Sensitive Data"",
+    ""priority"": 7
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:19:20.9499199Z,63856213400,63042300,487,23033000000,161,40758000000
+Spoofing of UDDI/ebXML Messages,"['Implementation: Clients should only trust UDDI, ebXML, or similar messages that are verifiably signed by a trusted party. ']","[
+{
+""name"": ""UDDI/ebXML Message Verification"",
+""priority"": 1
+},
+{
+""name"": ""Implement Digital Signatures for Messages"",
+""priority"": 2
+},
+{
+""name"": ""Use Secure Communication Channels"",
+""priority"": 3
+},
+{
+""name"": ""Monitor UDDI/ebXML Traffic for Anomalies"",
+""priority"": 4
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:20:12.0647019Z,49070931700,31687500,523,28188000000,81,20845000000
+DNS Rebinding,"['Design: IP Pinning causes browsers to record the IP address to which a given name resolves and continue using this address regardless of the TTL set in the DNS response. Unfortunately, this is incompatible with the design of some legitimate sites. ', 'Implementation: Reject HTTP request with a malicious Host header. ', 'Implementation: Employ DNS resolvers that prevent external names from resolving to internal addresses. ']","[
+  {
+    ""name"": ""DNS Resolvers Configuration"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""IP Pinning Implementation"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Host Header Validation"",
+    ""priority"": 3
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:21:05.6964649Z,51589490200,42159500,565,35118000000,65,16426000000
+DNS Spoofing,"['Design: Avoid dependence on DNS ', 'Design: Include ""hosts file""/IP address in the application ', 'Implementation: Utilize a .onion domain with Tor support ', 'Implementation: DNSSEC ', 'Implementation: DNS-hold-open ']","[
+  {
+    ""name"": ""Implement DNSSEC"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Utilize a .onion domain with Tor support"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Include \""hosts file\""/IP address in the application"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Avoid dependence on DNS"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""DNS-hold-open"",
+    ""priority"": 5
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:22:09.0267476Z,61286361200,48709100,537,31009000000,120,30227000000
+Token Impersonation,[],"{
+""mitigations"": [
+{
+""name"": ""Least Privilege Principle"",
+""priority"": 1
+},
+{
+""name"": ""Validated Token Validation"",
+""priority"": 2
+},
+{
+""name"": ""Token Revocation"",
+""priority"": 3
+},
+{
+""name"": ""Secure Session Management"",
+""priority"": 4
+},
+{
+""name"": ""Input Validation and Sanitization"",
+""priority"": 5
+},
+{
+""name"": ""Authentication and Authorization Controls"",
+""priority"": 6
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:23:00.4589649Z,49392664300,32090000,487,22917000000,105,26440000000
+Creating a Rogue Certification Authority Certificate,['Certification Authorities need to stop using deprecated or cryptographically insecure hashing algorithms to hash the certificates that they are about to sign. Instead they should be using stronger hashing functions such as SHA-256 or SHA-512. '],"[
+    {
+        ""name"": ""Stop using deprecated or cryptographically insecure hashing algorithms"",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Use stronger hashing functions such as SHA-256 or SHA-512"",
+        ""priority"": 2
+    }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:23:47.3145834Z,44813040700,49003100,534,30103000000,59,14657000000
+Signature Spoofing by Key Theft,"['Restrict access to private keys from non-supervisory accounts ', 'Restrict access to administrative personnel and processes only ', 'Ensure all remote methods are secured ', 'Ensure all services are patched and up to date ']","[
+    {
+        ""name"": ""Use Secure Key Exchange Protocols"",
+        ""priority"": 1
+    },
+    {
+        ""name"": ""Restrict access to private keys from non-supervisory accounts"",
+        ""priority"": 2
+    },
+    {
+        ""name"": ""Restrict access to administrative personnel and processes only"",
+        ""priority"": 3
+    },
+    {
+        ""name"": ""Ensure all remote methods are secured"",
+        ""priority"": 4
+    },
+    {
+        ""name"": ""Ensure all services are patched and up to date"",
+        ""priority"": 5
+    }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:24:52.0732842Z,62725413500,43211100,534,30061000000,130,32619000000
+Signature Spoofing by Improper Validation,['Use programs and products that contain cryptographic elements that have been thoroughly tested for flaws in the signature verification routines. '],"[
+    {""name"": ""Use programs and products that contain cryptographic elements that have been thoroughly tested for flaws in the signature verification routines."", ""priority"": 1},
+    {""name"": ""Implement secure signature validation mechanisms to detect and prevent spoofed signatures."", ""priority"": 2},
+    {""name"": ""Use digital signatures with hash functions like SHA-256 or stronger to make it more difficult to spoof signatures."", ""priority"": 3},
+    {""name"": ""Monitor system logs for suspicious activity related to signature verification and take prompt action against potential attacks."", ""priority"": 4}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:25:51.0077588Z,56890520600,44732900,514,26487000000,120,30357000000
+Signature Spoofing by Misrepresentation,"['Ensure the application is using parsing and data display techniques that will accurately display control characters, international symbols and markings, and ultimately recognize potential homograph attacks. ']","[
+{
+""name"": ""Input Validation"",
+""priority"": 1
+},
+{
+""name"": ""Data Encoding"",
+""priority"": 2
+},
+{
+""name"": ""Character Set Limitation"",
+""priority"": 3
+},
+{
+""name"": ""Internationalization and Localization"",
+""priority"": 4
+},
+{
+""name"": ""Regular Expression Validation"",
+""priority"": 5
+},
+{
+""name"": ""Homograph Attack Detection"",
+""priority"": 6,
+""description"": ""Implement parsing and data display techniques that accurately display control characters, international symbols, and markings to recognize potential homograph attacks.""
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:26:52.2348334Z,59180605500,49084500,522,28599000000,121,30531000000
+Signature Spoofing by Mixing Signed and Unsigned Content,['Ensure the application is fully patched and does not allow the processing of unsigned data as if it is signed data. '],"{
+""mitigations"": [
+{
+""name"": ""Disable Processing of Unsigned Data"",
+""priority"": 1
+},
+{
+""name"": ""Ensure Application is Fully Patched"",
+""priority"": 2
+},
+{
+""name"": ""Validate Signed Data Before Processing"",
+""priority"": 3
+},
+{
+""name"": ""Use Digital Signatures to Verify Content Authenticity"",
+""priority"": 4
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:27:42.2004573Z,47924704700,34242500,517,27332000000,82,20556000000
+Malicious Root Certificate,[],"[
+  {
+    ""name"": ""Disable Untrusted Certificates"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Implement Certificate Pinning"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Use a Trusted Certificate Authority"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Monitor and Analyze Network Traffic"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Implement Secure Sockets Layer (SSL) Protocol"",
+    ""priority"": 5
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:28:36.6559587Z,52408352800,48038600,487,23036000000,117,29323000000
+Signature Spoofing by Key Recreation,['Ensure cryptographic elements have been sufficiently tested for weaknesses. '],"[
+  {
+    ""name"": ""Use of Secure Random Number Generators"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Implement Cryptographically Secure Key Exchange Protocols"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Enforce Strong Password Policies for Authentication"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Use of Digital Certificates and Public Key Infrastructure (PKI)"",
+    ""priority"": 4
+  },
+  {
+    ""name"": ""Regularly Update and Patch Cryptographic Libraries"",
+    ""priority"": 5
+  },
+  {
+    ""name"": ""Ensure cryptographic elements have been sufficiently tested for weaknesses"",
+    ""priority"": 6
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:29:43.6848089Z,64994809900,44513200,502,24794000000,156,40155000000
+Relative Path Traversal,"['Design: Input validation. Assume that user inputs are malicious. Utilize strict type, character, and encoding enforcement ', 'Implementation: Perform input validation for all remote content, including remote and user-generated content. ', 'Implementation: Validate user input by only accepting known good. Ensure all content that is delivered to client is sanitized against an acceptable content specification -- using an allowlist approach. ', 'Implementation: Prefer working without user input when using file system calls ', 'Implementation: Use indirect references rather than actual file names. ', 'Implementation: Use possible permissions on file access when developing and deploying web applications. ']","{
+""mitigations"": [
+{
+""name"": ""Design: Input validation. Assume that user inputs are malicious. Utilize strict type, character, and encoding enforcement"",
+""priority"": 1
+},
+{
+""name"": ""Implementation: Perform input validation for all remote content, including remote and user-generated content."",
+""priority"": 2
+},
+{
+""name"": ""Implementation: Validate user input by only accepting known good. Ensure all content that is delivered to client is sanitized against an acceptable content specification -- using an allowlist approach."",
+""priority"": 3
+},
+{
+""name"": ""Implementation: Prefer working without user input when using file system calls"",
+""priority"": 4
+},
+{
+""name"": ""Implementation: Use indirect references rather than actual file names"",
+""priority"": 5
+},
+{
+""name"": ""Implementation: Use possible permissions on file access when developing and deploying web applications"",
+""priority"": 6
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:31:20.8919094Z,95162794300,56992700,609,47485000000,187,47617000000
+Absolute Path Traversal,"['Design: Configure the access control correctly. ', 'Design: Enforce principle of least privilege. ', 'Design: Execute programs with constrained privileges, so parent process does not open up further vulnerabilities. Ensure that all directories, temporary directories and files, and memory are executing with limited privileges to protect against remote execution. ', 'Design: Input validation. Assume that user inputs are malicious. Utilize strict type, character, and encoding enforcement. ', 'Design: Proxy communication to host, so that communications are terminated at the proxy, sanitizing the requests before forwarding to server host. ', 'Design: Run server interfaces with a non-root account and/or utilize chroot jails or other configuration techniques to constrain privileges even if attacker gains some limited access to commands. ', 'Implementation: Host integrity monitoring for critical files, directories, and processes. The goal of host integrity monitoring is to be aware when a security issue has occurred so that incident response and other forensic activities can begin. ', 'Implementation: Perform input validation for all remote content, including remote and user-generated content. ', 'Implementation: Perform testing such as pen-testing and vulnerability scanning to identify directories, programs, and interfaces that grant direct access to executables. ', 'Implementation: Use indirect references rather than actual file names. ', 'Implementation: Use possible permissions on file access when developing and deploying web applications. ', 'Implementation: Validate user input by only accepting known good. Ensure all content that is delivered to client is sanitized against an acceptable content specification using an allowlist approach. ']","{
+""mitigations"": [
+{
+""name"": ""Configure access control correctly"",
+""priority"": 1
+},
+{
+""name"": ""Enforce principle of least privilege"",
+""priority"": 2
+},
+{
+""name"": ""Execute programs with constrained privileges"",
+""priority"": 3
+},
+{
+""name"": ""Ensure limited privileges for directories, files, and memory"",
+""priority"": 4
+},
+{
+""name"": ""Input validation with strict type, character, and encoding enforcement"",
+""priority"": 5
+},
+{
+""name"": ""Proxy communication to host"",
+""priority"": 6
+},
+{
+""name"": ""Run server interfaces with a non-root account or chroot jails"",
+""priority"": 7
+},
+{
+""name"": ""Host integrity monitoring for critical files, directories, and processes"",
+""priority"": 8
+},
+{
+""name"": ""Input validation for all remote content"",
+""priority"": 9
+},
+{
+""name"": ""Perform testing such as pen-testing and vulnerability scanning"",
+""priority"": 10
+},
+{
+""name"": ""Use indirect references rather than actual file names"",
+""priority"": 11
+},
+{
+""name"": ""Possible permissions on file access when developing and deploying web applications"",
+""priority"": 12
+},
+{
+""name"": ""Validate user input by only accepting known good"",
+""priority"": 13
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:33:54.7283608Z,151799193000,48848600,794,72351000000,270,79395000000
+Manipulating Web Input to File System Calls,"['Design: Enforce principle of least privilege. ', 'Design: Ensure all input is validated, and does not contain file system commands ', 'Design: Run server interfaces with a non-root account and/or utilize chroot jails or other configuration techniques to constrain privileges even if attacker gains some limited access to commands. ', 'Design: For interactive user applications, consider if direct file system interface is necessary, instead consider having the application proxy communication. ', 'Implementation: Perform testing such as pen-testing and vulnerability scanning to identify directories, programs, and interfaces that grant direct access to executables. ']","{
+""mitigations"": [
+{
+""name"": ""Enforce principle of least privilege"",
+""priority"": 1
+},
+{
+""name"": ""Validate all input and disallow file system commands"",
+""priority"": 2
+},
+{
+""name"": ""Run server interfaces with a non-root account and/or utilize chroot jails"",
+""priority"": 3
+},
+{
+""name"": ""Use a proxy for interactive user applications to constrain file access"",
+""priority"": 4
+},
+{
+""name"": ""Perform testing such as pen-testing and vulnerability scanning"",
+""priority"": 5
+}
+]
+}",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:35:15.4123745Z,78642667400,28506100,609,45555000000,119,33055000000
+Forced Integer Overflow,"['Use a language or compiler that performs automatic bounds checking. ', ""Carefully review the service's implementation before making it available to user. For instance you can use manual or automated code review to uncover vulnerabilities such as integer overflow. "", 'Use an abstraction library to abstract away risky APIs. Not a complete solution. ', 'Always do bound checking before consuming user input data. ']","[
+{
+""name"": ""Automatic Bounds Checking"",
+""priority"": 1
+},
+{
+""name"": ""Code Review"",
+""priority"": 2
+},
+{
+""name"": ""Abstraction Library"",
+""priority"": 3
+},
+{
+""name"": ""Bound Checking before Consuming User Input"",
+""priority"": 4
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:36:13.9106706Z,56437538400,98681500,563,38311000000,66,18025000000
+Double Encoding,"['Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system. Test your decoding process against malicious input. ', 'Be aware of the threat of alternative method of data encoding and obfuscation technique such as IP address encoding. ', 'When client input is required from web-based forms, avoid using the ""GET"" method to submit data, as the method causes the form data to be appended to the URL and is easily manipulated. Instead, use the ""POST method whenever possible. ', 'Any security checks should occur after the data has been decoded and validated as correct data format. Do not repeat decoding process, if bad character are left after decoding process, treat the data as suspicious, and fail the validation process. ', 'Refer to the RFCs to safely decode URL. ', 'Regular expression can be used to match safe URL patterns. However, that may discard valid URL requests if the regular expression is too restrictive. ', 'There are tools to scan HTTP requests to the server for valid URL such as URLScan from Microsoft (http://www.microsoft.com/technet/security/tools/urlscan.mspx). ']","[
+{
+""name"": ""Define Allowlist for Input Validation"",
+""priority"": 1
+},
+{
+""name"": ""Use POST Method Instead of GET"",
+""priority"": 2
+},
+{
+""name"": ""Validate Data Format After Decoding"",
+""priority"": 3
+},
+{
+""name"": ""Regular Expression Matching for Safe URL Patterns"",
+""priority"": 4
+},
+{
+""name"": ""Scan HTTP Requests for Valid URLs (e.g. URLScan)"",
+""priority"": 5
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:37:58.4124711Z,102443790700,31910700,740,70764000000,100,31644000000
+Using Leading 'Ghost' Character Sequences to Bypass Input Filters,"['Use an allowlist rather than a denylist input validation. ', 'Canonicalize all data prior to validation. ', 'Take an iterative approach to input validation (defense in depth). ']","[
+  {
+    ""name"": ""Input Filtering"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Canonicalization"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Iterative Input Validation (Defense in Depth)"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Use an Allowlist Rather than a Denylist for Input Validation"",
+    ""priority"": 4
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:39:12.6649834Z,72178311200,32040000,534,43468000000,96,28676000000
+Using Alternative IP Address Encodings,"['Design: Default deny access control policies ', 'Design: Input validation routines should check and enforce both input data types and content against a positive specification. In regards to IP addresses, this should include the authorized manner for the application to represent IP addresses and not accept user specified IP addresses and IP address formats (such as ranges) ', 'Implementation: Perform input validation for all remote content. ']","[
+  {
+    ""name"": ""IP Address Validation"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Default Deny Access Control Policies"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Input Validation Routines for IP Addresses"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Perform Input Validation for Remote Content"",
+    ""priority"": 4
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:40:22.7553562Z,68002665900,29674900,567,41004000000,93,26955000000
+Exploiting Multiple Input Interpretation Layers,"['An iterative approach to input validation may be required to ensure that no dangerous characters are present. It may be necessary to implement redundant checking across different input validation layers. Ensure that invalid data is rejected as soon as possible and do not continue to work with it. ', 'Make sure to perform input validation on canonicalized data (i.e. data that is data in its most standard form). This will help avoid tricky encodings getting past the filters. ', 'Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist would not be permitted to enter into the system. ']","{
+""mitigations"": [
+{
+""name"": ""Redundant Input Validation"",
+""priority"": 1
+},
+{
+""name"": ""Canonicalized Data Validation"",
+""priority"": 2
+},
+{
+""name"": ""Allowlist-Based Input Filtering"",
+""priority"": 3
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:41:39.342278Z,74539827600,23102100,629,57209000000,59,17304000000
+Embedding NULL Bytes,['Properly handle the NULL characters supplied as part of user input prior to doing anything with the data. '],"[
+  {
+    ""name"": ""Input Validation"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Data Sanitization"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Safe Input Handling"",
+    ""priority"": 3
+  },
+  {
+    ""name"": ""Proper Character Handling"",
+    ""priority"": 4
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:42:37.2184252Z,55783065800,42483200,510,31636000000,84,24103000000
+"Postfix, Null Terminate, and Backslash","['Properly handle Null characters. Make sure canonicalization is properly applied. Do not pass Null characters to the underlying APIs. ', 'Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system. ']","[
+  {
+    ""name"": ""Properly handle Null characters"",
+    ""priority"": 1
+  },
+  {
+    ""name"": ""Assume all input is malicious and create an allowlist"",
+    ""priority"": 2
+  },
+  {
+    ""name"": ""Do not pass Null characters to the underlying APIs"",
+    ""priority"": 3
+  }
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:43:37.9191568Z,58657819400,39357300,567,37711000000,80,20905000000
+Using Slashes and URL Encoding Combined to Bypass Validation Logic,"['Assume all input is malicious. Create an allowlist that defines all valid input to the software system based on the requirements specifications. Input that does not match against the allowlist should not be permitted to enter into the system. Test your decoding process against malicious input. ', 'Be aware of the threat of alternative method of data encoding and obfuscation technique such as IP address encoding. ', 'When client input is required from web-based forms, avoid using the ""GET"" method to submit data, as the method causes the form data to be appended to the URL and is easily manipulated. Instead, use the ""POST method whenever possible. ', 'Any security checks should occur after the data has been decoded and validated as correct data format. Do not repeat decoding process, if bad character are left after decoding process, treat the data as suspicious, and fail the validation process. ', 'Refer to the RFCs to safely decode URL. ', 'Regular expression can be used to match safe URL patterns. However, that may discard valid URL requests if the regular expression is too restrictive. ', 'There are tools to scan HTTP requests to the server for valid URL such as URLScan from Microsoft (http://www.microsoft.com/technet/security/tools/urlscan.mspx). ']","{
+""mitigations"": [
+{
+""name"": ""Assume All Input Is Malicious"",
+""priority"": 1
+},
+{
+""name"": ""Create An Allowlist For Valid Input"",
+""priority"": 2
+},
+{
+""name"": ""Test Decoding Process Against Malicious Input"",
+""priority"": 3
+},
+{
+""name"": ""Avoid Using GET Method For Data Submission"",
+""priority"": 4
+},
+{
+""name"": ""Check For Suspicious Characters After Decoding"",
+""priority"": 5
+},
+{
+""name"": ""Refer To RFCs For Safe URL Decoding"",
+""priority"": 6
+},
+{
+""name"": ""Use Regular Expressions For URL Pattern Matching"",
+""priority"": 7
+},
+{
+""name"": ""Use Tools Like URLScan For Valid URL Scanning"",
+""priority"": 8
+}
+]",ALIENTELLIGENCE/cyberaisecurity,2024-11-27T12:45:51.8239484Z,131854340100,32879200,750,83919000000,169,47900000000
