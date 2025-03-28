@@ -95,6 +95,7 @@ Before you begin, ensure you have met the following requirements:
     ```
 
 3. **Set up your database:**
+    <p id=database>⚠️ This is required for running the ETL pipeline.<p>
     Ensure that you have a PostgreSQL database running with the schema defined in the `init.sql` file. You can set up the database either manually or by using Docker Compose. To use Docker Compose follow:
 
 - 3.1 **Create a `.env` File:**
@@ -143,6 +144,8 @@ To use generative AI for augmenting mitigations, you'll need to set up Ollama, w
     ```
 
 2. **Run the Extract, Transform, Load (ETL) process:**
+
+    ⚠️ Be sure to have the Database running (see [Set up your Database](#database))
     ```bash
     python src\extract_transform_load.py
     ```
