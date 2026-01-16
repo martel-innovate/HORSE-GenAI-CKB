@@ -61,7 +61,7 @@ The architecture of this project is divided into three main components:
 * **Mitigation Generator**: A Python module leveraging generative AI to enrich attack and mitigation data, producing a suite of attack-mitigation pairs and their optimal execution order, called priority.
 * **API service**: A RESTful API enabling communication with external modules.
 
-<img src="./img/LLM-based-mitigation-generator-architecture-diagram.png" width="1000">
+<img src="./img/LLM-based-mitigation-generator-architecture-diagram-transparent.png" width="1000">
 
 ### Sequence Diagram
 
