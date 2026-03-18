@@ -123,7 +123,7 @@ def filter_by_semantic_entropy(df_ai_generated):
             ]
             # filter mitigations by semantic entropy
             valid_mitigations = mitigation_processor(attack_name, mitigations_list)
-            return [m.name for m in valid_mitigations]
+            return [ {"name": m.name, "priority": m.priority} for m in valid_mitigations]
         except (json.JSONDecodeError, KeyError, TypeError) as e:
             # In case LLM generates a broken json, return an empty list
             return []
