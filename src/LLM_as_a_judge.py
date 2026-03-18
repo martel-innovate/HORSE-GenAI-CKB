@@ -5,6 +5,7 @@ import os
 import csv
 import requests
 import json
+from mitigation_batch_processor import mitigation_processor,Mitigation
 
 # load env variables
 load_dotenv()
@@ -106,10 +107,36 @@ def generate_evaluations(df_ai_generated):
             write_to_csv(file_path, row, response["response"], response["model"])
     return
 
+def filter_by_semantic_entropy(df_ai_generated):
+    '''
+    Filter mitigations by semantic entropy using mitigation_processor
+
+    returns pandas dataframe with added selected_mitigations field 
+    '''
+    df=df_ai_generated.copy()
+    def process_json_row(row):
+        attack_name = row["attack"]
+        json_str = row["mitigations_generated"]
+        try:
+            data = json.loads(json_str)
+            mitigations_list = [
+                Mitigation(name=item["name"], priority=item.get("priority", 0)) 
+                for item in data.get("mitigations", [])
+            ]
+            # filter mitigations by semantic entropy
+            valid_mitigations = mitigation_processor(attack_name, mitigations_list)
+            return [m.name for m in valid_mitigations]
+        except (json.JSONDecodeError, KeyError, TypeError) as e:
+            # Nel caso in cui il LLM abbia generato un json rotto
+            return []
+    df["selected_mitigations"] = df.apply(process_json_row, axis=1)
+    return df
 
 def main():
     df_ai_generated = read_exctract_csv()
-    generate_evaluations(df_ai_generated)
+    df=filter_by_semantic_entropy(df_ai_generated)
+    generate_evaluations(df)
+
 
 if __name__ == "__main__":
     main()
