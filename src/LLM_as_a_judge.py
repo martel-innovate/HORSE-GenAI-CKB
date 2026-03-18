@@ -110,8 +110,6 @@ def generate_evaluations(df_ai_generated):
 def filter_by_semantic_entropy(df_ai_generated):
     '''
     Filter mitigations by semantic entropy using mitigation_processor
-
-    returns pandas dataframe with added selected_mitigations field 
     '''
     df=df_ai_generated.copy()
     def process_json_row(row):
@@ -127,9 +125,9 @@ def filter_by_semantic_entropy(df_ai_generated):
             valid_mitigations = mitigation_processor(attack_name, mitigations_list)
             return [m.name for m in valid_mitigations]
         except (json.JSONDecodeError, KeyError, TypeError) as e:
-            # Nel caso in cui il LLM abbia generato un json rotto
+            # In case LLM generates a broken json, return an empty list
             return []
-    df["selected_mitigations"] = df.apply(process_json_row, axis=1)
+    df["mitigations_generated"] = df.apply(process_json_row, axis=1) # overrides mitigations_generated with filtered mitigations
     return df
 
 def main():
